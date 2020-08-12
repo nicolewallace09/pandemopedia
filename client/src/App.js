@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // apollo provider 
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -8,6 +8,8 @@ import ApolloClient from 'apollo-boost';
 
 // components and pages
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Homepage from './pages/Homepage';
 
 // establish apollo client
 const client = new ApolloClient({
@@ -31,10 +33,11 @@ function App() {
         <>
           <Navbar />
           <Switch>
-            {/* <Route exact path='/' component={SearchBooks} />
-            <Route exact path='/saved' component={SavedBooks} /> */}
+            <Route exact path='/' component={Homepage} />
+            {/*<Route exact path='/saved' component={SavedBooks} /> */}
             {/* <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
           </Switch>
+          <Footer/>
         </>
       </Router>
     </ApolloProvider>

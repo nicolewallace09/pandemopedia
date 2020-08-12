@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+*  {
+  font-family: noto Verdana, Geneva, Tahoma, sans-serif
+}
+
+.section {
+  font-size: 2rem;
+}
+
+.jumbotron-fluid {
+  background: url('https://ewscripps.brightspotcdn.com/dims4/default/7ee8cb6/2147483647/strip/true/crop/1280x720+0+0/resize/1280x720!/quality/90/?url=http%3A%2F%2Fewscripps-brightspot.s3.amazonaws.com%2F72%2F52%2F83d95c7b4318a34a8373c722bc6b%2Fcoronavirus-background-1280x720-1.jpg') no-repeat center center fixed;
+  padding-top: 10%;
+  padding-bottom: 20%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.stats-container {
+  padding: 50px;
+}
+
+#footer {
+  padding: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+}
+
