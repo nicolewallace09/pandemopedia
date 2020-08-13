@@ -1,4 +1,5 @@
 import React from 'react';
+import Example from '../components/Charts'
 
 const Homepage = () => {
     return (
@@ -22,6 +23,7 @@ const Homepage = () => {
                 <h1 class="section">United States Placeholder</h1>
             </div>
         </div>
+        <Example/>
         </>
     );
 };
