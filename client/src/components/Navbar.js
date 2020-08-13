@@ -13,10 +13,10 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='danger' variant='dark' expand='lg' class="title">
+      <Navbar bg='danger' variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-           Pandemopedia
+           <strong>Pandem<span class="title">opedia</span></strong>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>

@@ -20,6 +20,10 @@ code {
   font-size: 2rem;
 }
 
+.title {
+  color: black;
+}
+
 .jumbotron-fluid {
   background: url('https://ewscripps.brightspotcdn.com/dims4/default/7ee8cb6/2147483647/strip/true/crop/1280x720+0+0/resize/1280x720!/quality/90/?url=http%3A%2F%2Fewscripps-brightspot.s3.amazonaws.com%2F72%2F52%2F83d95c7b4318a34a8373c722bc6b%2Fcoronavirus-background-1280x720-1.jpg') no-repeat center center fixed;
   padding-top: 10%;
