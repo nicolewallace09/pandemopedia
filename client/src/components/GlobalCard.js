@@ -22,13 +22,37 @@ export default class GlobalCard extends React.Component {
             ):(
                 <div>
                     <div>
+                        {/* CUMULATIVE FIGURES */}
+                        
+                        {/* total cases (world) */}
                         {this.state.world.globalData.Confirmed}
                         
+                        {/* total active cases (world) */}
                         {this.state.world.globalData.Active}
                       
+                        {/* total recovered (world) */}
                         {this.state.world.globalData.Recovered}
-                  
+
+                        {/* total deaths (world) */}
                         {this.state.world.globalData.Deaths}
+                        
+                        {/* DAILY FIGURES */}
+                        
+                        {/* daily new cases (world) */}
+                        {this.state.world.globalData.NewConfirmed}
+                        
+                        {/* daily new recovered (world) */}
+                        {this.state.world.globalData.NewRecovered}
+
+                        {/* daily new deaths (world) */}
+                        {this.state.world.globalData.NewDeaths}
+
+                        {/* TIME of UPDATE */}
+
+                        {/* timestamp for data update (world) */}
+                        {this.state.world.globalData.Last_Update}
+
+
                     </div>
                 </div>
             
@@ -39,5 +63,3 @@ export default class GlobalCard extends React.Component {
 
 }
 }
-
-
