@@ -10,6 +10,7 @@ import ApolloClient from 'apollo-boost';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Homepage from './pages/Homepage';
+import SavedSearch from './pages/SavedSearch'
 
 // establish apollo client
 const client = new ApolloClient({
@@ -34,8 +35,8 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path='/' component={Homepage} />
-            {/*<Route exact path='/saved' component={SavedBooks} /> */}
-            {/* <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
+            <Route exact path='/saved' component={SavedSearch} /> 
+            <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Switch>
           <Footer/>
         </>
