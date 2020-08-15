@@ -44,6 +44,11 @@ code {
   padding: 50px;
 }
 
+.homepage-card {
+  padding: 20px;
+  margin: 20px;
+}
+
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;

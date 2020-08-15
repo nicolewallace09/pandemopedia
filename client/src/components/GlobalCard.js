@@ -10,6 +10,8 @@ export default class GlobalCard extends React.Component {
         const api = "https://corona.azure-api.net/all";
         const response = await fetch(api);
         const data = await response.json();
+
+        console.log(data)
         
         this.setState({ world: data[0], loading: false});
     }

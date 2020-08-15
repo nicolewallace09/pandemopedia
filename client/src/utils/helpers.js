@@ -1,3 +1,10 @@
+export function formatDate(date) {
+        return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
+    }
+
+
+
+
 // indexedDB
 // EXAMPLE FROM SHOP-SHOP needs to be changed 
 // export function idbPromise(storeName, method, object) {

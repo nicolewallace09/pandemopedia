@@ -1,7 +1,8 @@
 import React from 'react';
-import { Jumbotron, Container, Form, Col, Button} from 'react-bootstrap';
+import { Jumbotron, Container, Form, Col, Button, Row, Card} from 'react-bootstrap';
 import Example from '../components/Charts'
 import GlobalCard from '../components/GlobalCard';
+import CountryCard from '../components/CountryCard';
 
 // use booksearch for an example on functionality of search input 
 
@@ -35,23 +36,19 @@ const Homepage = () => {
         </Container>
       </Jumbotron>
 
-        <div class="row stats-container text-center">
-            <div class="col-6 card">
-                <h1 class="section">Global Placeholder</h1>
-                <div class="row global-container">
-                    <div class="col-12">
-                        <p class="badge badge-primary">Confirmed:</p> Example# <p class="badge badge-warning">Active:</p> Example#<br></br>
-                    </div>
-                    <div class="col-12">
-                        <p class="badge badge-success">Recovered:</p> Example# <p class="badge badge-danger">Deaths:</p> Example#
-                    </div>
-                </div>
-            </div>
+      <Container fluid>
+              <Row>
+                <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+                    <CountryCard/>
+                </Col>
 
-            <div class="col-6">
-                <h1 class="section">United States Placeholder</h1>
-            </div>
-        </div>
+                <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+                    <CountryCard/>
+                </Col>
+
+              </Row>
+        </Container>
+
         <Example/>
         <GlobalCard/>
         </>
