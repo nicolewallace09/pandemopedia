@@ -2,7 +2,11 @@ import React from 'react';
 import { Jumbotron, Container, Form, Col, Button, Row, Card} from 'react-bootstrap';
 import Example from '../components/Charts'
 import GlobalCard from '../components/GlobalCard';
+<<<<<<< HEAD
 import CountryCard from '../components/CountryCard';
+=======
+import StateCard from '../components/StateCard';
+>>>>>>> 76c2db29f32293ba43d51eae5ff6d83d714541f8
 
 // use booksearch for an example on functionality of search input 
 
@@ -51,6 +55,7 @@ const Homepage = () => {
 
         <Example/>
         <GlobalCard/>
+        <StateCard/>
         </>
     );
 };
