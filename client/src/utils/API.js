@@ -10,21 +10,11 @@ export const covidDataCurrent = () => {
   return fetch ()
 }
 
-console.log('I am here!!');
+
 
 export const getCovidDetails = () => {
 
 var apiUrlAllData1 = "https://corona.azure-api.net/all";
-var apiUrlAllData2 = "https://api.covidtracking.com/v1/states/info.json";
-var apiUrlAllData3 = "https://covidtracking.com/api/states/info"
-
-const state = "ca"
-const city = "novato"
-
-var apiUrlAllData4 = "https://corona.azure-api.net/country/us/:state/:city"
-var apiUrlAllData5 = "https://corona.azure-api.net/country/us/California/Los Angeles"
-var apiUrlAllData6 = "http://covid19.richdataservices.com/rds/api/catalog"
-
 
 fetch(apiUrlAllData1)
   .then(function(response) {

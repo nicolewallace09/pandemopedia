@@ -2,6 +2,7 @@ import React from 'react';
 import { Jumbotron, Container, Form, Col, Button} from 'react-bootstrap';
 import Example from '../components/Charts'
 import GlobalCard from '../components/GlobalCard';
+import StateCard from '../components/StateCard';
 
 // use booksearch for an example on functionality of search input 
 
@@ -54,6 +55,7 @@ const Homepage = () => {
         </div>
         <Example/>
         <GlobalCard/>
+        <StateCard/>
         </>
     );
 };
