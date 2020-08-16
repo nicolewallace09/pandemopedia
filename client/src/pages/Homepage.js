@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Container, Form, Col, Button, Row, Card} from 'react-bootstrap';
+import { Jumbotron, Container, Form, Col, Button, Row} from 'react-bootstrap';
 import Example from '../components/Charts'
 import GlobalCard from '../components/GlobalCard';
 import CountryCard from '../components/CountryCard';
@@ -13,7 +13,7 @@ const Homepage = () => {
         {/* <div class="jumbotron-fluid" ></div> */}
         <Jumbotron fluid className='text-light bg-danger' style={{ height: 560, clear: "both", paddingTop: 200, paddingLeft: 200}}>
         <Container>
-          <h5>Search for your city</h5>
+          <h5>Search for your state</h5>
           <Form>
           {/* <Form onSubmit={handleFormSubmit}> -- FROM BOOK SEARCH */ }
             <Form.Row>
@@ -24,8 +24,9 @@ const Homepage = () => {
                 //   onChange={(e) => setSearchInput(e.target.value)}
                   type='text'
                   size='md'
-                  placeholder='Please enter a city'
+                  placeholder='Enter here'
                 />
+                <i className="app-claim">* This application is intended for US states only</i>
               </Col>
               <Col xs={12} md={4}>
                 <Button type='submit' variant='danger' size='md'>
@@ -37,10 +38,14 @@ const Homepage = () => {
         </Container>
       </Jumbotron>
 
+      <Container>
+        <h1 className="header text-center">COVID-19 Tracker</h1>
+      </Container>
+
       <Container fluid>
               <Row>
                 <Col sm="12" md={{ size: 6, offset: 0.1 }}>
-                    <CountryCard/>
+                    <GlobalCard/>
                 </Col>
 
                 <Col sm="12" md={{ size: 6, offset: 0.1 }}>
@@ -51,7 +56,6 @@ const Homepage = () => {
         </Container>
 
         <Example/>
-        <GlobalCard/>
         <StateCard/>
         </>
     );

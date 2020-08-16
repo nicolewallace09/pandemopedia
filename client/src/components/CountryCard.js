@@ -36,7 +36,7 @@ export default class CountryCard extends React.Component {
                         <br></br>
                         <p class="badge badge-success">Recovered:</p> {this.state.us.countryData[165].US.Summary.Recovered.toLocaleString()}
                         <br></br>
-                        <p class="badge badge-danger">Deaths:</p>{this.state.us.countryData[165].US.Summary.Deaths.toLocaleString()}
+                        <p class="badge badge-danger">Deaths:</p> {this.state.us.countryData[165].US.Summary.Deaths.toLocaleString()}
                         <br></br>
 
                         <h4 class="text-center">US NEW CASES</h4>
@@ -44,10 +44,10 @@ export default class CountryCard extends React.Component {
                         <br></br>
                         <p class="badge badge-success">Recovered:</p> {this.state.us.countryData[165].US.Summary.NewRecovered.toLocaleString()}
                         <br></br>
-                        <p class="badge badge-danger">Deaths: </p>{this.state.us.countryData[165].US.Summary.NewDeaths.toLocaleString()}
+                        <p class="badge badge-danger">Deaths: </p> {this.state.us.countryData[165].US.Summary.NewDeaths.toLocaleString()}
                         <br></br>
                         <br></br>
-                        <i>Last Updated: <Moment format="MMMM Do YYYY a">{this.state.us.countryData[165].US.Summary.Last_Update}</Moment></i>
+                        <i>Last Updated: <Moment format="MMMM Do YYYY hh:mm a">{this.state.us.countryData[165].US.Summary.Last_Update}</Moment></i>
                     </div>
                 </div>
                 </Card>
