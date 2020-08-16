@@ -1,6 +1,6 @@
 import React from 'react'; 
 
-export default class GlobalCard extends React.Component {
+export default class StateCard extends React.Component {
     state = {
         loading: true,
         world: null
