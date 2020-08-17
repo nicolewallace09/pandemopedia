@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Jumbotron, Container, Form, Col, Button, Row, Card, CardColumns } from 'react-bootstrap';
-
-// adding Auth for later
-import Auth from '../utils/auth';
+import React from 'react';
+import { Jumbotron, Container, Form, Col, Button, Row} from 'react-bootstrap';
 import Example from '../components/Charts'
 import GlobalCard from '../components/GlobalCard';
 import CountryCard from '../components/CountryCard';
@@ -108,6 +105,7 @@ const Homepage = () => {
                   size='md'
                   placeholder='Please enter a state'
                 />
+                <i className="app-claim">* This application is intended for US states only</i>
               </Col>
               <Col xs={12} md={4}>
                 <Button type='submit' variant='danger' size='md'>
@@ -118,6 +116,10 @@ const Homepage = () => {
           </Form>
         </Container>
       </Jumbotron>
+
+      <Container>
+        <h1 className="header text-center">COVID-19 Tracker</h1>
+      </Container>
 
       <Container fluid>
               <Row>

@@ -1,4 +1,6 @@
 import React from 'react'; 
+import Moment from 'react-moment';
+import { Card, Spinner} from 'react-bootstrap';
 
 export default class GlobalCard extends React.Component {
     state = {
@@ -20,37 +22,36 @@ export default class GlobalCard extends React.Component {
             <>
             <div>
                 {this.state.loading || !this.state.world ? (
-                    <div>Loading...</div>
+                    <Spinner animation="border" variant="danger" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </Spinner>
                 ):(
-                    <div className="row stats-container text-center">
-                        <div className="col-6 card">
-                            <h5 className="section">Global Stats
-                            </h5>
-                            <div className="row global-container">
-                                <div className="col-6">
-                                    <h6>Cumulative</h6>
-                                    <p className="badge badge-primary">Confirmed: {this.state.world.globalData.Confirmed.toLocaleString()}
-                                    </p>
-                                    <p className="badge badge-warning">Active: {this.state.world.globalData.Active.toLocaleString()}
-                                    </p>
-                                    <p className="badge badge-danger">Deaths: {this.state.world.globalData.Deaths.toLocaleString()}
-                                    </p>
-                                    <p className="badge badge-success">Recovered: {this.state.world.globalData.Recovered.toLocaleString()}
-                                    </p>
-                                    <br></br>
-                                </div>
-                                <div className="col-6">
-                                    <h6>Daily</h6>
-                                    <p className="badge badge-warning">New Cases: {this.state.world.globalData.NewConfirmed.toLocaleString()}</p>
-                                    <p className="badge badge-danger">New Deaths: {this.state.world.globalData.NewDeaths.toLocaleString()}
-                                    </p>
-                                    <p className="badge badge-success">New Recovered: {this.state.world.globalData.NewRecovered.toLocaleString()}
-                                    </p>
-                                    
-                                </div>
-                            </div>
+                    <Card border="white" className="homepage-card">
+                    <div>
+                        <div>
+                            <h4 class="text-center">GLOBAL TOTAL CASES</h4>
+                            <h3 class="text-primary text-center">{this.state.world.globalData.Confirmed.toLocaleString()}</h3>
+                            <br></br>
+                            <p class="badge badge-warning">Active:</p> {this.state.world.globalData.Active.toLocaleString()}
+                            <br></br>
+                            <p class="badge badge-success">Recovered:</p> {this.state.world.globalData.Recovered.toLocaleString()}
+                            <br></br>
+                            <p class="badge badge-danger">Deaths:</p> {this.state.world.globalData.Deaths.toLocaleString()}
+                            <br></br>
+
+                            <h4 class="text-center">GLOBAL NEW CASES</h4>
+                            <h3 class="text-primary text-center">{this.state.world.globalData.NewConfirmed.toLocaleString()}</h3>
+                            <br></br>
+                            <p class="badge badge-success">Recovered:</p> {this.state.world.globalData.NewRecovered.toLocaleString()}
+                            <br></br>
+                            <p class="badge badge-danger">Deaths: </p> {this.state.world.globalData.NewDeaths.toLocaleString()}
+                            <br></br>
+                            <br></br>
+                            <i>Last Updated: <Moment format="MMMM Do YYYY hh:mm a">{this.state.world.globalData.Last_Update}</Moment></i>
                         </div>
                     </div>
+                    </Card>
+
                 
                 )}
             </div>
