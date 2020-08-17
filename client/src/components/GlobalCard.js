@@ -22,29 +22,29 @@ export default class GlobalCard extends React.Component {
                 {this.state.loading || !this.state.world ? (
                     <div>Loading...</div>
                 ):(
-                    <div class="row stats-container text-center">
-                        <div class="col-6 card">
-                            <h5 class="section">Global Stats
+                    <div className="row stats-container text-center">
+                        <div className="col-6 card">
+                            <h5 className="section">Global Stats
                             </h5>
-                            <div class="row global-container">
-                                <div class="col-6">
+                            <div className="row global-container">
+                                <div className="col-6">
                                     <h6>Cumulative</h6>
-                                    <p class="badge badge-primary">Confirmed: {this.state.world.globalData.Confirmed.toLocaleString()}
+                                    <p className="badge badge-primary">Confirmed: {this.state.world.globalData.Confirmed.toLocaleString()}
                                     </p>
-                                    <p class="badge badge-warning">Active: {this.state.world.globalData.Active.toLocaleString()}
+                                    <p className="badge badge-warning">Active: {this.state.world.globalData.Active.toLocaleString()}
                                     </p>
-                                    <p class="badge badge-danger">Deaths: {this.state.world.globalData.Deaths.toLocaleString()}
+                                    <p className="badge badge-danger">Deaths: {this.state.world.globalData.Deaths.toLocaleString()}
                                     </p>
-                                    <p class="badge badge-success">Recovered: {this.state.world.globalData.Recovered.toLocaleString()}
+                                    <p className="badge badge-success">Recovered: {this.state.world.globalData.Recovered.toLocaleString()}
                                     </p>
                                     <br></br>
                                 </div>
-                                <div class="col-6">
+                                <div className="col-6">
                                     <h6>Daily</h6>
-                                    <p class="badge badge-warning">New Cases: {this.state.world.globalData.NewConfirmed.toLocaleString()}</p>
-                                    <p class="badge badge-danger">New Deaths: {this.state.world.globalData.NewDeaths.toLocaleString()}
+                                    <p className="badge badge-warning">New Cases: {this.state.world.globalData.NewConfirmed.toLocaleString()}</p>
+                                    <p className="badge badge-danger">New Deaths: {this.state.world.globalData.NewDeaths.toLocaleString()}
                                     </p>
-                                    <p class="badge badge-success">New Recovered: {this.state.world.globalData.NewRecovered.toLocaleString()}
+                                    <p className="badge badge-success">New Recovered: {this.state.world.globalData.NewRecovered.toLocaleString()}
                                     </p>
                                     
                                 </div>

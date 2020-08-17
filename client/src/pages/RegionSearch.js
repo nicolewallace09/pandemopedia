@@ -1,3 +1,6 @@
+// This page will show data for state and county based on the user search.  The state search input field is on the homepage and must be brought to this page.  Eventually will add the ability to save the search.
+
+
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Form, Col, Button, Row, Card, CardColumns } from 'react-bootstrap';
 
@@ -11,7 +14,7 @@ import { searchByState } from '../utils/API';
 
 
 // use booksearch for an example on functionality of search input 
-const Homepage = () => {
+const RegionSearch = () => {
 
   // create state for holding returned api data
   const [searchedUsState, setSearchedUsState] = useState([]);
@@ -59,11 +62,6 @@ const Homepage = () => {
         newDeaths: data.NewDeaths,
         lastUpdate: data.Last_Update,
       });
-
-      // if (stateData !== 'undefined') {
-      //   return <Redirect  to="/region/" />
-      // }
-      
 
       console.log(stateData);
       console.log('total cases', data.Confirmed);
@@ -122,7 +120,7 @@ const Homepage = () => {
       <Container fluid>
               <Row>
                 <Col sm="12" md={{ size: 6, offset: 0.1 }}>
-                    <GlobalCard/>
+                    <StateCard/>
                 </Col>
 
                 <Col sm="12" md={{ size: 6, offset: 0.1 }}>
@@ -132,11 +130,10 @@ const Homepage = () => {
               </Row>
         </Container>
 
-        <Example/>
-        <StateCard stateSearch={searchInput}/>
+        
         </>
     );
 };
 
 
-export default Homepage; 
+export default RegionSearch; 

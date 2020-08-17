@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
-import { covidDataCurrent } from '../utils/API'
+//import { covidDataCurrent } from '../utils/API'
 
 
 

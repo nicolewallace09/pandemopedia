@@ -66,6 +66,8 @@ export const deleteBook = (bookId, token) => {
 // make a search to google books api
 // https://www.googleapis.com/books/v1/volumes?q=harry+potter
 export const searchByState = (query) => {
+  console.log(query);
   return fetch(`https://corona.azure-api.net/country/us/${query}`);
+  
 };
 

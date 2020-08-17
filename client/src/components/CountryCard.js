@@ -29,22 +29,22 @@ export default class CountryCard extends React.Component {
                 <Card border="white" className="homepage-card">
                 <div>
                     <div>
-                        <h4 class="text-center">US TOTAL CASES</h4>
-                        <h3 class="text-primary text-center">{this.state.us.countryData[165].US.Summary.Confirmed.toLocaleString()}</h3>
+                        <h4 className="text-center">US TOTAL CASES</h4>
+                        <h3 className="text-primary text-center">{this.state.us.countryData[165].US.Summary.Confirmed.toLocaleString()}</h3>
                         <br></br>
-                        <p class="badge badge-warning">Active:</p> {this.state.us.countryData[165].US.Summary.Active.toLocaleString()}
+                        <p className="badge badge-warning">Active:</p> {this.state.us.countryData[165].US.Summary.Active.toLocaleString()}
                         <br></br>
-                        <p class="badge badge-success">Recovered:</p> {this.state.us.countryData[165].US.Summary.Recovered.toLocaleString()}
+                        <p className="badge badge-success">Recovered:</p> {this.state.us.countryData[165].US.Summary.Recovered.toLocaleString()}
                         <br></br>
-                        <p class="badge badge-danger">Deaths:</p>{this.state.us.countryData[165].US.Summary.Deaths.toLocaleString()}
+                        <p className="badge badge-danger">Deaths:</p>{this.state.us.countryData[165].US.Summary.Deaths.toLocaleString()}
                         <br></br>
 
-                        <h4 class="text-center">US NEW CASES</h4>
-                        <h3 class="text-primary text-center">{this.state.us.countryData[165].US.Summary.NewConfirmed.toLocaleString()}</h3>
+                        <h4 className="text-center">US NEW CASES</h4>
+                        <h3 className="text-primary text-center">{this.state.us.countryData[165].US.Summary.NewConfirmed.toLocaleString()}</h3>
                         <br></br>
-                        <p class="badge badge-success">Recovered:</p> {this.state.us.countryData[165].US.Summary.NewRecovered.toLocaleString()}
+                        <p className="badge badge-success">Recovered:</p> {this.state.us.countryData[165].US.Summary.NewRecovered.toLocaleString()}
                         <br></br>
-                        <p class="badge badge-danger">Deaths: </p>{this.state.us.countryData[165].US.Summary.NewDeaths.toLocaleString()}
+                        <p className="badge badge-danger">Deaths: </p>{this.state.us.countryData[165].US.Summary.NewDeaths.toLocaleString()}
                         <br></br>
                         <br></br>
                         <i>Last Updated: <Moment format="MMMM Do YYYY a">{this.state.us.countryData[165].US.Summary.Last_Update}</Moment></i>
