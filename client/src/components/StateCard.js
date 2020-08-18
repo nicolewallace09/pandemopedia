@@ -1,13 +1,24 @@
 import React from 'react'; 
+//import { Homepage, stateData } from '../pages/Homepage';
+//import { [searchInput, setSearchInput] } from '../pages/Homepage';
+//console.log(searchInput);
 
-export default class GlobalCard extends React.Component {
-    state = {
+
+
+export default class StateCard extends React.Component {
+  
+//const StateCard = (props) => {
+  
+  state = {
         loading: true,
         world: null
-    }; 
+    };
+
+  
 
     async componentDidMount() {
-        const region = 'california'; // country is an input, but assuming we will only view US in state search
+        const region = 'california'; // replace with searchInput
+        //searchInput; // country is an input, but assuming we will only view US in state search
 
         const api = `https://corona.azure-api.net/country/us/${region}`;
         const response = await fetch(api);
@@ -22,29 +33,29 @@ export default class GlobalCard extends React.Component {
                 {this.state.loading || !this.state.usState ? (
                     <div>Loading...</div>
                 ):(
-                    <div class="row stats-container text-center">
-                        <div class="col-6 card">
-                            <h5 class="section">State Stats
+                    <div className="row stats-container text-center">
+                        <div className="col-6 card">
+                            <h5 className="section">State Stats
                             </h5>
-                            <div class="row global-container">
-                                <div class="col-6">
+                            <div className="row global-container">
+                                <div className="col-6">
                                     <h6>Cumulative</h6>
-                                    <p class="badge badge-primary">Confirmed: {this.state.usState.Confirmed.toLocaleString()}
+                                    <p className="badge badge-primary">Confirmed: {this.state.usState.Confirmed.toLocaleString()}
                                     </p>
-                                    <p class="badge badge-warning">Active: {this.state.usState.Active.toLocaleString()}
+                                    <p className="badge badge-warning">Active: {this.state.usState.Active.toLocaleString()}
                                     </p>
-                                    <p class="badge badge-danger">Deaths: {this.state.usState.Deaths.toLocaleString()}
+                                    <p className="badge badge-danger">Deaths: {this.state.usState.Deaths.toLocaleString()}
                                     </p>
-                                    <p class="badge badge-success">Recovered: {this.state.usState.Recovered.toLocaleString()}
+                                    <p className="badge badge-success">Recovered: {this.state.usState.Recovered.toLocaleString()}
                                     </p>
                                     <br></br>
                                 </div>
-                                <div class="col-6">
+                                <div className="col-6">
                                     <h6>Daily</h6>
-                                    <p class="badge badge-warning">New Cases: {this.state.usState.NewConfirmed.toLocaleString()}</p>
-                                    <p class="badge badge-danger">New Deaths: {this.state.usState.NewDeaths.toLocaleString()}
+                                    <p className="badge badge-warning">New Cases: {this.state.usState.NewConfirmed.toLocaleString()}</p>
+                                    <p className="badge badge-danger">New Deaths: {this.state.usState.NewDeaths.toLocaleString()}
                                     </p>
-                                    <p class="badge badge-success">New Recovered: {this.state.usState.NewRecovered.toLocaleString()}
+                                    <p className="badge badge-success">New Recovered: {this.state.usState.NewRecovered.toLocaleString()}
                                     </p>
                                     
                                 </div>
@@ -52,10 +63,13 @@ export default class GlobalCard extends React.Component {
                         </div>
                     </div>
                 
-                )}
-            </div>
+                  ) }
+                   
+            </div> 
             </>
         )
     
     }
-    }
+  }
+
+  //export default StateCard;

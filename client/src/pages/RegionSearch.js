@@ -1,5 +1,11 @@
-import React from 'react';
-import { Jumbotron, Container, Form, Col, Button, Row} from 'react-bootstrap';
+// This page will show data for state and county based on the user search.  The state search input field is on the homepage and must be brought to this page.  Eventually will add the ability to save the search.
+
+
+import React, { useState, useEffect } from 'react';
+import { Jumbotron, Container, Form, Col, Button, Row, Card, CardColumns } from 'react-bootstrap';
+
+// adding Auth for later
+import Auth from '../utils/auth';
 import Example from '../components/Charts'
 import GlobalCard from '../components/GlobalCard';
 import CountryCard from '../components/CountryCard';
@@ -8,7 +14,7 @@ import { searchByState } from '../utils/API';
 
 
 // use booksearch for an example on functionality of search input 
-const Homepage = () => {
+const RegionSearch = () => {
 
   // create state for holding returned api data
   const [searchedUsState, setSearchedUsState] = useState([]);
@@ -57,11 +63,6 @@ const Homepage = () => {
         lastUpdate: data.Last_Update,
       });
 
-      // if (stateData !== 'undefined') {
-      //   return <Redirect  to="/region/" />
-      // }
-      
-
       console.log(stateData);
       console.log('total cases', data.Confirmed);
       console.log('total deaths', data.Deaths);
@@ -105,7 +106,6 @@ const Homepage = () => {
                   size='md'
                   placeholder='Please enter a state'
                 />
-                <i className="app-claim">* This application is intended for US states only</i>
               </Col>
               <Col xs={12} md={4}>
                 <Button type='submit' variant='danger' size='md'>
@@ -117,14 +117,10 @@ const Homepage = () => {
         </Container>
       </Jumbotron>
 
-      <Container>
-        <h1 className="header text-center">COVID-19 Tracker</h1>
-      </Container>
-
       <Container fluid>
               <Row>
                 <Col sm="12" md={{ size: 6, offset: 0.1 }}>
-                    <GlobalCard/>
+                    <StateCard/>
                 </Col>
 
                 <Col sm="12" md={{ size: 6, offset: 0.1 }}>
@@ -134,11 +130,10 @@ const Homepage = () => {
               </Row>
         </Container>
 
-        <Example/>
-        <StateCard stateSearch={searchInput}/>
+        
         </>
     );
 };
 
 
-export default Homepage; 
+export default RegionSearch; 
