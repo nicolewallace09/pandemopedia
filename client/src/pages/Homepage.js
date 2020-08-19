@@ -1,6 +1,6 @@
 import React from 'react';
-import { Jumbotron, Container, Form, Col, Button, Row} from 'react-bootstrap';
-import Example from '../components/Charts'
+import { Jumbotron, Container, Form, Col, Button, Row } from 'react-bootstrap';
+// import Example from '../components/Charts'
 import GlobalCard from '../components/GlobalCard';
 import CountryCard from '../components/CountryCard';
 import StateCard from '../components/StateCard';
@@ -55,7 +55,8 @@ const Homepage = () => {
               </Row>
         </Container>
 
-        <Example/>
+        
+        {/* <Example/> */}
         <StateCard/>
         </>
     );

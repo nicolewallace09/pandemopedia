@@ -1,6 +1,8 @@
 import React from 'react'; 
 import Moment from 'react-moment';
-import { Card, Spinner} from 'react-bootstrap';
+import { Card, Spinner, Row, Col} from 'react-bootstrap';
+import CountryTotalChart from './CountryTotalChart';
+import CountryNewChart from './CountryNewChart';
 
 export default class CountryCard extends React.Component {
     state = {
@@ -29,22 +31,37 @@ export default class CountryCard extends React.Component {
                 <Card border="white" className="homepage-card">
                 <div>
                     <div>
-                        <h4 class="text-center">US TOTAL CASES</h4>
-                        <h3 class="text-primary text-center">{this.state.us.countryData[165].US.Summary.Confirmed.toLocaleString()}</h3>
+                        <h4 className="text-center">US TOTAL CASES</h4>
+                        <h3 className="text-primary text-center">{this.state.us.countryData[165].US.Summary.Confirmed.toLocaleString()}</h3>
                         <br></br>
-                        <p class="badge badge-warning">Active:</p> {this.state.us.countryData[165].US.Summary.Active.toLocaleString()}
+                        <Row>
+                        <Col xs={9} md={6}>
+                        <p className="badge badge-warning">Active:</p> {this.state.us.countryData[165].US.Summary.Active.toLocaleString()}
                         <br></br>
-                        <p class="badge badge-success">Recovered:</p> {this.state.us.countryData[165].US.Summary.Recovered.toLocaleString()}
+                        <p className="badge badge-success">Recovered:</p> {this.state.us.countryData[165].US.Summary.Recovered.toLocaleString()}
                         <br></br>
-                        <p class="badge badge-danger">Deaths:</p> {this.state.us.countryData[165].US.Summary.Deaths.toLocaleString()}
+                        <p className="badge badge-danger">Deaths:</p> {this.state.us.countryData[165].US.Summary.Deaths.toLocaleString()}
+                        </Col>
+                        <Col xs={3} md={6}>
+                        <CountryTotalChart/>
+                        </Col>
+                        </Row>
                         <br></br>
 
-                        <h4 class="text-center">US NEW CASES</h4>
-                        <h3 class="text-primary text-center">{this.state.us.countryData[165].US.Summary.NewConfirmed.toLocaleString()}</h3>
+
+                        <h4 className="text-center">US NEW CASES</h4>
+                        <h3 className="text-primary text-center">{this.state.us.countryData[165].US.Summary.NewConfirmed.toLocaleString()}</h3>
                         <br></br>
-                        <p class="badge badge-success">Recovered:</p> {this.state.us.countryData[165].US.Summary.NewRecovered.toLocaleString()}
+                        <Row>
+                        <Col xs={9} md={6}>
+                        <p className="badge badge-success">Recovered:</p> {this.state.us.countryData[165].US.Summary.NewRecovered.toLocaleString()}
                         <br></br>
-                        <p class="badge badge-danger">Deaths: </p> {this.state.us.countryData[165].US.Summary.NewDeaths.toLocaleString()}
+                        <p className="badge badge-danger">Deaths: </p> {this.state.us.countryData[165].US.Summary.NewDeaths.toLocaleString()}
+                        </Col>
+                        <Col xs={3} md={6}>
+                        <CountryNewChart/>
+                        </Col>
+                        </Row>
                         <br></br>
                         <br></br>
                         <i>Last Updated: <Moment format="MMMM Do YYYY hh:mm a">{this.state.us.countryData[165].US.Summary.Last_Update}</Moment></i>

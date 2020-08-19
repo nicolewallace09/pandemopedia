@@ -17,7 +17,7 @@ This application demonstrates the MERN stack, using MongoDB & Mongoose (along wi
 The user should clone the repository from GitHub and install dependencies. For development or testing purposes, run `npm install` on both client and server directories to install dependencies. There are two servers for client side and server side, which can be run on their own. To run both servers at the same time, open the root directory and run `npm start`.
 
 ## Usage 
-This application was designed for users to view global numbers of pandemic data and view their own state informed - designed for United States users.
+This application was designed for users to view global numbers of pandemic data and view their own state information - designed for United States users.
 
 ## License 
 This project is license under MIT
