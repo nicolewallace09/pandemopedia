@@ -1,75 +1,99 @@
 import React from 'react'; 
+//import { searchInput } from '../pages/Homepage';
+import { Card, Spinner} from 'react-bootstrap';
+import Moment from 'react-moment';
 //import { Homepage, stateData } from '../pages/Homepage';
 //import { [searchInput, setSearchInput] } from '../pages/Homepage';
 //console.log(searchInput);
 
-
+//console.log(searchInput);
 
 export default class StateCard extends React.Component {
+//StateCard = (props) => { 
   
-//const StateCard = (props) => {
   
   state = {
         loading: true,
-        world: null
+        props: null
     };
 
   
 
     async componentDidMount() {
-        const region = 'california'; // replace with searchInput
-        //searchInput; // country is an input, but assuming we will only view US in state search
+      console.log(this.props.value);
+        // const region = this.props.searchInput;       //this.props.searchInput; // replace with searchInput
+        // //searchInput; // country is an input, but assuming we will only view US in state search
 
-        const api = `https://corona.azure-api.net/country/us/${region}`;
-        const response = await fetch(api);
-        const data = await response.json();
+        // const api = `https://corona.azure-api.net/country/us/${region}`;
+        // const response = await fetch(api);
+        // const data = await response.json();
         
-        this.setState({ usState: data, loading: false});
-    }
+        this.setState({ props: this.props, loading: false});
+    }  
     render() {
         return (
             <>
             <div>
-                {this.state.loading || !this.state.usState ? (
-                    <div>Loading...</div>
+              <div>{this.props.value}</div>
+{/*               
+                {this.state.loading || !this.props ? (
+                  <Spinner animation="border" variant="danger" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </Spinner>
                 ):(
-                    <div className="row stats-container text-center">
-                        <div className="col-6 card">
-                            <h5 className="section">State Stats
-                            </h5>
-                            <div className="row global-container">
-                                <div className="col-6">
-                                    <h6>Cumulative</h6>
-                                    <p className="badge badge-primary">Confirmed: {this.state.usState.Confirmed.toLocaleString()}
-                                    </p>
-                                    <p className="badge badge-warning">Active: {this.state.usState.Active.toLocaleString()}
-                                    </p>
-                                    <p className="badge badge-danger">Deaths: {this.state.usState.Deaths.toLocaleString()}
-                                    </p>
-                                    <p className="badge badge-success">Recovered: {this.state.usState.Recovered.toLocaleString()}
-                                    </p>
-                                    <br></br>
-                                </div>
-                                <div className="col-6">
-                                    <h6>Daily</h6>
-                                    <p className="badge badge-warning">New Cases: {this.state.usState.NewConfirmed.toLocaleString()}</p>
-                                    <p className="badge badge-danger">New Deaths: {this.state.usState.NewDeaths.toLocaleString()}
-                                    </p>
-                                    <p className="badge badge-success">New Recovered: {this.state.usState.NewRecovered.toLocaleString()}
-                                    </p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
-                  ) }
-                   
-            </div> 
-            </>
-        )
-    
-    }
+                  <Card border="white" className="homepage-card">
+                  <div>
+                    {/* <p>{this.props}</p> */}
+                      {/* <div>
+                          <h4 className="text-center">US TOTAL CASES</h4> */}
+                          {/* <h3 className="text-primary text-center">{this.props.stateData.confirmed.toLocaleString()}</h3> */}
+                          {/* <br></br> */}
+                          {/* <p className="badge badge-warning">Active:</p> {this.state.usState.Active.toLocaleString()}
+                          <br></br>
+                          <p className="badge badge-success">Recovered:</p> {this.state.usState.Recovered.toLocaleString()}
+                          <br></br>
+                          <p class="badge badge-danger">Deaths:</p> {this.state.usState.Deaths.toLocaleString()}
+                          <br></br>
+  
+                          <h4 className="text-center">US NEW CASES</h4>
+                          <h3 className="text-primary text-center">{this.state.usState.NewConfirmed.toLocaleString()}</h3>
+                          <br></br>
+                          <p className="badge badge-success">Recovered:</p> {this.state.usState.NewRecovered.toLocaleString()}
+                          <br></br>
+                          <p class="badge badge-danger">Deaths: </p> {this.state.usState.NewDeaths.toLocaleString()}
+                          <br></br>
+                          <br></br>
+                          <i>Last Updated: <Moment format="MMMM Do YYYY hh:mm a">{this.state.usState.Last_Update}</Moment></i> */}
+                      {/* </div>
+                  </div>
+                  </Card>
+                  
+              
+              )} * */}
+          </div>
+          </>
+      )
+  
   }
-
-  //export default StateCard;
+  }
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    

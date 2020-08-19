@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Form, Col, Button, Row} from 'react-bootstrap';
 import Example from '../components/Charts'
 import GlobalCard from '../components/GlobalCard';
 import CountryCard from '../components/CountryCard';
 import StateCard from '../components/StateCard';
 import { searchByState } from '../utils/API';
+import StateCard2 from '../components/StateCard2'
 
 
-// use booksearch for an example on functionality of search input 
+
 const Homepage = () => {
 
   // create state for holding returned api data
@@ -15,6 +16,8 @@ const Homepage = () => {
 
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
+
+  let stateData = {};
 
   // THIS CAN BE USED FOR SAVED IDs 
   // create state to hold saved stateID values (discuss with rest of team how to implement)
@@ -48,20 +51,19 @@ const Homepage = () => {
       console.log(data);
 
       
-      // replace all of this with the state api and data variables
-      const stateData = () => ({
+      
+      
+
+    stateData = {
         confirmed: data.Confirmed,
         deaths: data.Deaths,
         newConfirmed: data.NewConfirmed,
         newDeaths: data.NewDeaths,
         lastUpdate: data.Last_Update,
-      });
+      };
 
-      // if (stateData !== 'undefined') {
-      //   return <Redirect  to="/region/" />
-      // }
-      
 
+    
       console.log(stateData);
       console.log('total cases', data.Confirmed);
       console.log('total deaths', data.Deaths);
@@ -71,21 +73,12 @@ const Homepage = () => {
 
 
       setSearchedUsState(stateData);
-      setSearchInput('');
-    
-      
-    } catch (err) {
-      console.error(err);
-    }
-
-    
-
-
+      setSearchInput(searchInput);
+         
+      } catch (err) {
+        console.error(err);
+      }
   };
-
-
-
-
 
     return (
         <>
@@ -94,7 +87,6 @@ const Homepage = () => {
         <Container>
           <h5>Search for your state</h5>
           <Form onSubmit={handleFormSubmit}>
-          {/* <Form onSubmit={handleFormSubmit}> -- FROM BOOK SEARCH */ }
             <Form.Row>
               <Col xs={12} md={8}>
                 <Form.Control
@@ -135,7 +127,8 @@ const Homepage = () => {
         </Container>
 
         <Example/>
-        <StateCard stateSearch={searchInput}/>
+        <StateCard2 test = { "test" }  />
+        <StateCard2  onSubmit/> 
         </>
     );
 };
