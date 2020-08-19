@@ -1,13 +1,24 @@
 import React from 'react'; 
+//import { Homepage, stateData } from '../pages/Homepage';
+//import { [searchInput, setSearchInput] } from '../pages/Homepage';
+//console.log(searchInput);
 
-export default class GlobalCard extends React.Component {
-    state = {
+
+
+export default class StateCard extends React.Component {
+  
+//const StateCard = (props) => {
+  
+  state = {
         loading: true,
         world: null
-    }; 
+    };
+
+  
 
     async componentDidMount() {
-        const region = 'california'; // country is an input, but assuming we will only view US in state search
+        const region = 'california'; // replace with searchInput
+        //searchInput; // country is an input, but assuming we will only view US in state search
 
         const api = `https://corona.azure-api.net/country/us/${region}`;
         const response = await fetch(api);
@@ -52,10 +63,13 @@ export default class GlobalCard extends React.Component {
                         </div>
                     </div>
                 
-                )}
-            </div>
+                  ) }
+                   
+            </div> 
             </>
         )
     
     }
-    }
+  }
+
+  //export default StateCard;

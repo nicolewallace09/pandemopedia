@@ -48,12 +48,11 @@ export default class CountryCard extends React.Component {
                         </Row>
                         <br></br>
 
-
+                        <Row>
+                        <Col xs={9} md={6}>
                         <h4 className="text-center">US NEW CASES</h4>
                         <h3 className="text-primary text-center">{this.state.us.countryData[165].US.Summary.NewConfirmed.toLocaleString()}</h3>
                         <br></br>
-                        <Row>
-                        <Col xs={9} md={6}>
                         <p className="badge badge-success">Recovered:</p> {this.state.us.countryData[165].US.Summary.NewRecovered.toLocaleString()}
                         <br></br>
                         <p className="badge badge-danger">Deaths: </p> {this.state.us.countryData[165].US.Summary.NewDeaths.toLocaleString()}
