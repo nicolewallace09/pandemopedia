@@ -87,7 +87,6 @@ const Homepage = () => {
 
 
 
-
   return (
     <>
       {/* <div class="jumbotron-fluid" ></div> */}
