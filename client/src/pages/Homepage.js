@@ -129,11 +129,11 @@ const Homepage = () => {
 
         <Container fluid>
             <Row>
-                <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+                <Col sm="12" md="6">
                     <GlobalCard/>
                 </Col>
 
-                <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+                <Col sm="12" md="6">
                   <CountryCard />
                 </Col>
            </Row>
@@ -141,12 +141,12 @@ const Homepage = () => {
 
       <Container fluid className="time-series">
       <h1 className="time-header text-center">US Time Series (30 Day Trend)</h1><br></br>
-            <Row style={{paddingLeft: 200, paddingBottom: 50}}>
-              <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+            <Row style={{paddingLeft: 200, paddingBottom: 100}}>
+              <Col sm="12" md="6">
                 <TimelineCases/>
               </Col>
 
-              <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+              <Col sm="12" md="6">
                 <TimelineDeaths/>
               </Col>
             </Row>

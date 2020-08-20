@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Spinner } from 'react-bootstrap';
 import {
-  // BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   PieChart, Pie, Cell,
 } from 'recharts';
 
@@ -25,7 +24,6 @@ const renderCustomizedLabel = ({
 };
 
 export default class CountryTotalChart extends PureComponent {
-  // static jsfiddleUrl = 'https://jsfiddle.net/alidingling/30763kr7/';
   constructor() {
     super()
     this.state = {
@@ -34,23 +32,7 @@ export default class CountryTotalChart extends PureComponent {
       }    
   }
 
-  // state = {
-  //   loading: false,
-  //   us: null
-  // }; 
-
   componentDidMount() {
-    // const api = "https://corona.azure-api.net/all";
-    // const response = await fetch(api);
-    // const data = await response.json();
-    // let data = []
-    // data = "https://corona.azure-api.net/all"; 
-    // this.setState({ data });
-
-    // console.log("charts", data)
-    
-    // this.setState({ us: data[0], loading: false});
-
     return fetch('https://corona.azure-api.net/all')
     .then((response) => response.json())
     .then((responseJson) => {
@@ -89,22 +71,6 @@ export default class CountryTotalChart extends PureComponent {
       </Spinner>)
     else 
     return (
-      // <BarChart
-      //   width={500}
-      //   height={300}
-      //   data={this.state.data}
-      //   margin={{
-      //     top: 5, right: 30, left: 20, bottom: 5,
-      //   }}
-      // >
-      //   <CartesianGrid strokeDasharray="3 3" />
-      //   <XAxis dataKey="name" />
-      //   <YAxis />
-      //   <Tooltip />
-      //   <Legend />
-      //   <Bar dataKey="pv" fill="#8884d8" />
-      //   <Bar dataKey="uv" fill="#82ca9d" />
-      // </BarChart>
       <PieChart width={350} height={350}>
       <Pie
         data={this.state.data}

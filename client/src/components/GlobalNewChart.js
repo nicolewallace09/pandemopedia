@@ -6,8 +6,8 @@ import {
 
 
 const COLORS = [
-// '#0088FE', -- red
-// '#ffc107', -- yellow
+'#0088FE',
+// '#ffc107',
 '#29a744', '#dc3644'];
 
 const RADIAN = Math.PI / 180;
@@ -40,9 +40,9 @@ export default class GlobalNewChart extends PureComponent {
     .then((responseJson) => {
       this.setState({
         data: [
-          // {
-          //   name: 'Confirmed', value: responseJson[0].countryData[165].US.Summary.Confirmed
-          // },
+          {
+            name: 'Confirmed', value: responseJson[0].globalData.NewConfirmed
+          },
         //   {
         //     name: 'Active', value: responseJson[0].globalData.Confirmed
         //   },

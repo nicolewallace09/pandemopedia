@@ -44,10 +44,10 @@ export default class GlobalTotalChart extends PureComponent {
           //   name: 'Confirmed', value: responseJson[0].countryData[165].US.Summary.Confirmed
           // },
           {
-            name: 'Active', value: responseJson[0].globalData.Confirmed
+            name: 'Active', value: responseJson[0].globalData.Active
           },
           {
-            name: 'Recovered', value: responseJson[0].globalData.Active
+            name: 'Recovered', value: responseJson[0].globalData.Recovered
           },
           {
             name: 'Deaths', value: responseJson[0].globalData.Deaths
