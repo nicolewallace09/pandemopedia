@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Row, Col, Spinner} from 'react-bootstrap';
+import { Card, Row, Col} from 'react-bootstrap';
 import Moment from 'react-moment';
 
 
@@ -34,7 +34,7 @@ const StateCard = ({value, region}) => {
                     <br></br>
                     </Col>
                     </Row>
-                    <i>Last Updated: <Moment format="MMMM Do YYYY hh:mm a">{value.Last_Update}</Moment></i>
+                    <i>Last Updated: <Moment format="MMMM Do, YYYY hh:mm a">{value.Last_Update}</Moment></i>
                 </div>
             </div>
             </Card>

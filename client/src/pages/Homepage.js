@@ -123,7 +123,8 @@ const Homepage = () => {
         </Container> 
 
         <Container>
-          <h1 className="header text-center">COVID-19 Tracker</h1>
+          {/* <h1 className="header text-center">COVID-19 Tracker</h1> */}
+          <center><img src="https://www.knightdesign.com.au/wp-content/uploads/2020/03/COVID-19.png" alt="covid-logo" style={{ height: 300 }}></img></center>
         </Container>
 
         <Container fluid>
@@ -132,11 +133,31 @@ const Homepage = () => {
                     <GlobalCard/>
                 </Col>
 
-          <Col sm="12" md={{ size: 6, offset: 0.1 }}>
-            <CountryCard />
-          </Col>
+                <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+                  <CountryCard />
+                </Col>
+           </Row>
+      </Container>
 
-        </Row>
+      <Container fluid className="time-series">
+      <h1 className="time-header text-center">US Time Series (30 Day Trend)</h1><br></br>
+            <Row style={{paddingLeft: 200, paddingBottom: 50}}>
+              <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+                <TimelineCases/>
+              </Col>
+
+              <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+                <TimelineDeaths/>
+              </Col>
+            </Row>
+
+
+    
+            <Row>
+              <Col sm="12" md='12'>
+                    <center><img src="https://completemusicupdate.com/wp-content/uploads/2020/03/stopthespread1250.jpg" alt="stopspread" style={{paddingBottom: 100}}></img></center>
+              </Col>
+            </Row>
       </Container>
       </>
     );

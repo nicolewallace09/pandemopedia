@@ -14,7 +14,7 @@ code {
 
 *  {
   font-family: noto Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .app-claim {
@@ -50,8 +50,19 @@ code {
 }
 
 .homepage-card {
-  padding: 70px;
-  margin: 50px;
+  margin: 15px 200px 
+}
+
+.time-series {
+  margin: 0 auto;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  background-color: #dc3644;
+  color: #fff;
 }
 
 @media screen and (max-width: 768px) {

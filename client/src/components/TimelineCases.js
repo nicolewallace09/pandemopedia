@@ -3,12 +3,8 @@ import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
-// import { covidDataCurrent } from '../utils/API'
-
 
 function Chart() {
-    const jsfiddleUrl = 'https://jsfiddle.net/alidingling/xqjtetw0/';
-
     const [apiData, setApiData] = useState({});
 
     // comment
@@ -105,7 +101,7 @@ function Chart() {
         < div >
             {/* comment */}
             {apiData ? (<LineChart
-                width={500}
+                width={600}
                 height={300}
                 data={
                     // comment

@@ -63,7 +63,7 @@ export default class CountryCard extends React.Component {
                         </Row>
                         <br></br>
                         <br></br>
-                        <i>Last Updated: <Moment format="MMMM Do YYYY hh:mm a">{this.state.us.countryData[165].US.Summary.Last_Update}</Moment></i>
+                        {/* <i>Last Updated: <Moment format="MMMM Do YYYY hh:mm a">{this.state.us.countryData[165].US.Summary.Last_Update}</Moment></i> */}
                     </div>
                 </div>
                 </Card>
