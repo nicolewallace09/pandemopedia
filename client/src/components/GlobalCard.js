@@ -42,7 +42,7 @@ export default class GlobalCard extends React.Component {
                             <br></br>
                             <p className="badge badge-danger">Deaths:</p> {this.state.world.globalData.Deaths.toLocaleString()}
                             </Col>
-                            <Col xs={3} md={3}>
+                            <Col xs={3} md={4}>
                             <GlobalTotalChart/>
                             </Col>
                             </Row>
@@ -56,7 +56,7 @@ export default class GlobalCard extends React.Component {
                             <br></br>
                             <p className="badge badge-danger">Deaths: </p> {this.state.world.globalData.NewDeaths.toLocaleString()}
                             </Col>
-                            <Col xs={3} md={3}>
+                            <Col xs={3} md={4}>
                             <GlobalNewChart/>
                             </Col>
                             </Row>
