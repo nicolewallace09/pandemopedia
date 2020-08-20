@@ -1,75 +1,41 @@
-import React from 'react'; 
-//import { Homepage, stateData } from '../pages/Homepage';
-//import { [searchInput, setSearchInput] } from '../pages/Homepage';
-//console.log(searchInput);
+import React from 'react';
+import { Card, Spinner} from 'react-bootstrap';
+import Moment from 'react-moment';
 
 
+const StateCard = ({value}) => {
 
-export default class StateCard extends React.Component {
+  console.log('Is value data being passed', value)
   
-//const StateCard = (props) => {
-  
-  state = {
-        loading: true,
-        world: null
-    };
-
-  
-
-    async componentDidMount() {
-        const region = 'california'; // replace with searchInput
-        //searchInput; // country is an input, but assuming we will only view US in state search
-
-        const api = `https://corona.azure-api.net/country/us/${region}`;
-        const response = await fetch(api);
-        const data = await response.json();
-        
-        this.setState({ usState: data, loading: false});
-    }
-    render() {
-        return (
-            <>
+  return (
+    <>
+    <div>
+            <Card border="white" className="homepage-card">
             <div>
-                {this.state.loading || !this.state.usState ? (
-                    <div>Loading...</div>
-                ):(
-                    <div className="row stats-container text-center">
-                        <div className="col-6 card">
-                            <h5 className="section">State Stats
-                            </h5>
-                            <div className="row global-container">
-                                <div className="col-6">
-                                    <h6>Cumulative</h6>
-                                    <p className="badge badge-primary">Confirmed: {this.state.usState.Confirmed.toLocaleString()}
-                                    </p>
-                                    <p className="badge badge-warning">Active: {this.state.usState.Active.toLocaleString()}
-                                    </p>
-                                    <p className="badge badge-danger">Deaths: {this.state.usState.Deaths.toLocaleString()}
-                                    </p>
-                                    <p className="badge badge-success">Recovered: {this.state.usState.Recovered.toLocaleString()}
-                                    </p>
-                                    <br></br>
-                                </div>
-                                <div className="col-6">
-                                    <h6>Daily</h6>
-                                    <p className="badge badge-warning">New Cases: {this.state.usState.NewConfirmed.toLocaleString()}</p>
-                                    <p className="badge badge-danger">New Deaths: {this.state.usState.NewDeaths.toLocaleString()}
-                                    </p>
-                                    <p className="badge badge-success">New Recovered: {this.state.usState.NewRecovered.toLocaleString()}
-                                    </p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
-                  ) }
-                   
-            </div> 
-            </>
-        )
-    
-    }
-  }
+                <div>
+                    <h4 className="text-center">TOTAL CASES</h4> 
+                    <h3 className="text-primary text-center">{value.confirmed.toLocaleString()}</h3>
+                    <br></br>
+                    <p class="badge badge-danger">Deaths:</p> {value.deaths.toLocaleString()}
+                    <br></br>
 
-  //export default StateCard;
+                    <h4 className="text-center">NEW CASES</h4>
+                    <h3 className="text-primary text-center">{value.newConfirmed.toLocaleString()}</h3>
+                    <br></br>
+                    <p class="badge badge-danger">Deaths: </p> {value.newDeaths.toLocaleString()}
+                    <br></br>
+                    <br></br>
+                    <i>Last Updated: <Moment format="MMMM Do YYYY hh:mm a">{value.Last_Update}</Moment></i>
+                </div>
+            </div>
+            </Card>
+            
+        
+     
+    </div>
+    </>
+)
+
+}
+
+export default StateCard;
