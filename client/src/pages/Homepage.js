@@ -55,14 +55,18 @@ const Homepage = () => {
         lastUpdate: data.Last_Update,
       }];
 
+      //setSearchInput(searchInput);
       setSearchInput(searchInput);
       //setSearchedUsState(searchedUsState);
       setSearchedUsState(...searchedUsState, stateData);
-         
+  
       } catch (err) {
         console.error(err);
       }
+      
   };
+
+  // set state back to '' with a function call
 
    
     // Will use this function with the savedSearch function
@@ -129,6 +133,7 @@ const Homepage = () => {
                     {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
                     */}
                     {/* {JSON.stringify(searchedUsState)} */}
+                    {/* { <StateCard value = {renderSingleSearch()}} */}
               
                 </Col>
                 <Col sm="12" md={{ size: 6, offset: 0.1 }}>
