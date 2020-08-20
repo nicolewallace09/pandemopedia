@@ -46,7 +46,6 @@ export default class CountryCard extends React.Component {
                         <CountryTotalChart/>
                         </Col>
                         </Row>
-                        <br></br>
 
                         <h4 className="text-center">US NEW CASES</h4>
                         <h3 className="text-primary text-center">{this.state.us.countryData[165].US.Summary.NewConfirmed.toLocaleString()}</h3>

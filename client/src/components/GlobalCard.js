@@ -46,7 +46,6 @@ export default class GlobalCard extends React.Component {
                             <GlobalTotalChart/>
                             </Col>
                             </Row>
-                            <br></br>
 
                             <h4 className="text-center">GLOBAL NEW CASES</h4>
                             <h3 className="text-primary text-center">{this.state.world.globalData.NewConfirmed.toLocaleString()}</h3>
