@@ -4,16 +4,17 @@ import GlobalCard from '../components/GlobalCard';
 import CountryCard from '../components/CountryCard';
 import StateCard from '../components/StateCard';
 import { searchByState } from '../utils/API';
-
+import TimelineCases from '../components/TimelineCases';
+import TimelineDeaths from '../components/TimelineDeaths';
 
 
 const Homepage = () => {
 
   // create state for holding returned api data
-  const [searchedUsState, setSearchedUsState] = useState([]);
+  const [searchedUsState, setSearchedUsState] = useState([]); //////
 
   // create state for holding our search field data
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState(''); //////
 
   let stateData = {};
 
@@ -21,10 +22,10 @@ const Homepage = () => {
   const [savedStateIds, setSavedStateIds] = useState(''); // still need to define and pass in getSavedStateIds() to be consistent with BookSearch.js
 
   //const [saveState, { error }] = useMutation(SAVE_STATE);  // still need to define([
-  
+
   // set up useEffect hook to save 'saveStateIds' list to localStorage on component unmount
- // useEffect(() => {
-   // return () => saveStateIds(savedStateIds);
+  // useEffect(() => {
+  // return () => saveStateIds(savedStateIds);
   //});
 
   // create method to search for US States and set state on form submit
@@ -36,7 +37,7 @@ const Homepage = () => {
     }
 
     try {
-      const response = await searchByState (searchInput);
+      const response = await searchByState(searchInput);
       console.log(searchInput);
       console.log(response);
 
@@ -63,7 +64,6 @@ const Homepage = () => {
         console.error(err);
       }
   };
-
    
     // Will use this function with the savedSearch function
   /*  
@@ -116,12 +116,13 @@ const Homepage = () => {
                     <GlobalCard/>
                 </Col>
 
-                <Col sm="12" md={{ size: 6, offset: 0.1 }}>
-                    <CountryCard/>
-                </Col>
+          <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+            <CountryCard />
+          </Col>
 
-            </Row>
-        </Container>
+        </Row>
+      </Container>
+
         <Container>
             <Row>
                 <Col sm='12' md={{ size: 6, offset: 0.1 }}>
