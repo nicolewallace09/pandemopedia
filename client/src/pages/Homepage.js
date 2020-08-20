@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Jumbotron, Container, Form, Col, Button, Row} from 'react-bootstrap';
+import { Jumbotron, Container, Form, Col, Button, Row } from 'react-bootstrap';
+// import Example from '../components/Charts'
 import GlobalCard from '../components/GlobalCard';
 import CountryCard from '../components/CountryCard';
 import StateCard from '../components/StateCard';
 import { searchByState } from '../utils/API';
-
+import TimelineCases from '../components/TimelineCases';
+import TimelineDeaths from '../components/TimelineDeaths';
 
 
 const Homepage = () => {
 
   // create state for holding returned api data
-  const [searchedUsState, setSearchedUsState] = useState([]);
+  const [searchedUsState, setSearchedUsState] = useState([]); //////
 
   // create state for holding our search field data
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState(''); //////
 
   let stateData = {};
 
@@ -21,10 +23,10 @@ const Homepage = () => {
   const [savedStateIds, setSavedStateIds] = useState(''); // still need to define and pass in getSavedStateIds() to be consistent with BookSearch.js
 
   //const [saveState, { error }] = useMutation(SAVE_STATE);  // still need to define([
-  
+
   // set up useEffect hook to save 'saveStateIds' list to localStorage on component unmount
- // useEffect(() => {
-   // return () => saveStateIds(savedStateIds);
+  // useEffect(() => {
+  // return () => saveStateIds(savedStateIds);
   //});
 
   // create method to search for US States and set state on form submit
@@ -36,7 +38,7 @@ const Homepage = () => {
     }
 
     try {
-      const response = await searchByState (searchInput);
+      const response = await searchByState(searchInput);
       console.log(searchInput);
       console.log(response);
 
@@ -59,7 +61,6 @@ const Homepage = () => {
       setSearchInput(searchInput);
       //setSearchedUsState(searchedUsState);
       setSearchedUsState(...searchedUsState, stateData);
-  
       } catch (err) {
         console.error(err);
       }
@@ -110,8 +111,25 @@ const Homepage = () => {
           </Container>
         </Jumbotron>
 
+        <Container fluid>
+            <Row>
+                <Col sm={12} md={12}>
+                    { searchedUsState.length > 0 ? <StateCard value = {searchedUsState[0]} region = {searchInput} /> : null }
+                    {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
+                    */}
+                    {/* {JSON.stringify(searchedUsState)} */}
+              
+                </Col>
+                <Col sm="12" md={{ size: 12, offset: 0.1 }}>
+                    {/* CityCard will go here */}
+                    
+                </Col>
+            </Row>
+        </Container> 
+
         <Container>
-          <h1 className="header text-center">COVID-19 Tracker</h1>
+          {/* <h1 className="header text-center">COVID-19 Tracker</h1> */}
+          <center><img src="https://www.knightdesign.com.au/wp-content/uploads/2020/03/COVID-19.png" alt="covid-logo" style={{ height: 300 }}></img></center>
         </Container>
 
         <Container fluid>
@@ -121,27 +139,31 @@ const Homepage = () => {
                 </Col>
 
                 <Col sm="12" md={{ size: 6, offset: 0.1 }}>
-                    <CountryCard/>
+                  <CountryCard />
                 </Col>
+           </Row>
+      </Container>
 
+      <Container fluid className="time-series">
+      <h1 className="time-header text-center">US Time Series (30 Day Trend)</h1><br></br>
+            <Row style={{paddingLeft: 200, paddingBottom: 100}}>
+              <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+                <TimelineCases/>
+              </Col>
+
+              <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+                <TimelineDeaths/>
+              </Col>
             </Row>
-        </Container>
-        <Container>
+
+
+    
             <Row>
-                <Col sm='12' md={{ size: 6, offset: 0.1 }}>
-                    { searchedUsState.length > 0 ? <StateCard value = {searchedUsState[0]} region = {searchInput} /> : null }
-                    {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
-                    */}
-                    {/* {JSON.stringify(searchedUsState)} */}
-                    {/* { <StateCard value = {renderSingleSearch()}} */}
-              
-                </Col>
-                <Col sm="12" md={{ size: 6, offset: 0.1 }}>
-                    {/* CityCard will go here */}
-                    
-                </Col>
+              <Col sm="12" md='12'>
+                    <center><img src="https://completemusicupdate.com/wp-content/uploads/2020/03/stopthespread1250.jpg" alt="stopspread" style={{paddingBottom: 100}}></img></center>
+              </Col>
             </Row>
-        </Container>  
+      </Container>
       </>
     );
 };

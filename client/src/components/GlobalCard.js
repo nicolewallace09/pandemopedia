@@ -46,7 +46,6 @@ export default class GlobalCard extends React.Component {
                             <GlobalTotalChart/>
                             </Col>
                             </Row>
-                            <br></br>
 
                             <h4 className="text-center">GLOBAL NEW CASES</h4>
                             <h3 className="text-primary text-center">{this.state.world.globalData.NewConfirmed.toLocaleString()}</h3>
@@ -61,9 +60,7 @@ export default class GlobalCard extends React.Component {
                             <GlobalNewChart/>
                             </Col>
                             </Row>
-                            <br></br>
-                            <br></br>
-                            <i>Last Updated: <Moment format="MMMM Do YYYY hh:mm a">{this.state.world.globalData.Last_Update}</Moment></i>
+                            Last Updated: <Moment format="MMMM Do, YYYY hh:mm a">{this.state.world.globalData.Last_Update}</Moment>
                         </div>
                     </div>
                     </Card>
