@@ -1,12 +1,12 @@
 // This page will show data for state and county based on the user search.  The state search input field is on the homepage and must be brought to this page.  Eventually will add the ability to save the search.
 
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Jumbotron, Container, Form, Col, Button, Row, Card, CardColumns } from 'react-bootstrap';
 
 // adding Auth for later
 import Auth from '../utils/auth';
-import Example from '../components/Charts'
+// import Example from '../components/Charts'
 import GlobalCard from '../components/GlobalCard';
 import CountryCard from '../components/CountryCard';
 import StateCard from '../components/StateCard';

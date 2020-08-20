@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Jumbotron, Container, Form, Col, Button, Row } from 'react-bootstrap';
 // import Example from '../components/Charts'
 import GlobalCard from '../components/GlobalCard';
