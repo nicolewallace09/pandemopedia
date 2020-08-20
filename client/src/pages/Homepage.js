@@ -17,9 +17,8 @@ const Homepage = () => {
 
   let stateData = {};
 
-  // THIS CAN BE USED FOR SAVED IDs 
-  // create state to hold saved stateID values (discuss with rest of team how to implement)
-  //const [savedStateIds, setSavedStateIds] = useState(getSavedStateIds()); // still need to define getSavedStateIds()
+  // create state to hold saved stateID values
+  const [savedStateIds, setSavedStateIds] = useState(''); // still need to define and pass in getSavedStateIds() to be consistent with BookSearch.js
 
   //const [saveState, { error }] = useMutation(SAVE_STATE);  // still need to define([
   
@@ -74,6 +73,10 @@ const Homepage = () => {
         <StateCard2 search = {singleSearch} key = {i}/>
       )}
   */
+
+  const getSavedStateIds = () => {
+
+  }
       
     return (
         <>
@@ -122,7 +125,7 @@ const Homepage = () => {
         <Container>
             <Row>
                 <Col sm='12' md={{ size: 6, offset: 0.1 }}>
-                    { searchedUsState.length > 0 ? <StateCard value = {searchedUsState[0]} /> : null }
+                    { searchedUsState.length > 0 ? <StateCard value = {searchedUsState[0]} region = {searchInput} /> : null }
                     {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
                     */}
                     {/* {JSON.stringify(searchedUsState)} */}

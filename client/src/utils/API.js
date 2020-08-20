@@ -63,11 +63,20 @@ export const deleteBook = (bookId, token) => {
 */
 
 
-// make a search to google books api
-// https://www.googleapis.com/books/v1/volumes?q=harry+potter
+// search for covid data by State
 export const searchByState = (query) => {
   console.log(query);
   return fetch(`https://corona.azure-api.net/country/us/${query}`);
   
 };
 
+
+// api for state and city
+var apiUrlAllData4 = "https://corona.azure-api.net/country/us/:state/:city"
+var apiUrlAllData5 = "https://corona.azure-api.net/country/us/California/Los Angeles"
+
+export const searchByCity = (query, cityQuery) => {
+  console.log(query);
+  console.log(cityQuery);
+  return fetch(`https://corona.azure-api.net/country/us/${query}/${cityQuery}`); 
+};

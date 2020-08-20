@@ -3,9 +3,10 @@ import { Card, Spinner} from 'react-bootstrap';
 import Moment from 'react-moment';
 
 
-const StateCard = ({value}) => {
+const StateCard = ({value, region}) => {
 
   console.log('Is value data being passed', value)
+  console.log('Is region data being passed', region)
   
   return (
     <>
@@ -13,13 +14,13 @@ const StateCard = ({value}) => {
             <Card border="white" className="homepage-card">
             <div>
                 <div>
-                    <h4 className="text-center">TOTAL CASES</h4> 
+                    <h4 className="text-center">{region.toUpperCase()} TOTAL CASES</h4> 
                     <h3 className="text-primary text-center">{value.confirmed.toLocaleString()}</h3>
                     <br></br>
                     <p class="badge badge-danger">Deaths:</p> {value.deaths.toLocaleString()}
                     <br></br>
 
-                    <h4 className="text-center">NEW CASES</h4>
+                    <h4 className="text-center">{region.toUpperCase()} NEW CASES</h4>
                     <h3 className="text-primary text-center">{value.newConfirmed.toLocaleString()}</h3>
                     <br></br>
                     <p class="badge badge-danger">Deaths: </p> {value.newDeaths.toLocaleString()}
