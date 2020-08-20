@@ -1,6 +1,8 @@
 import React from 'react'; 
 import Moment from 'react-moment';
-import { Card, Spinner} from 'react-bootstrap';
+import { Card, Row, Col, Spinner} from 'react-bootstrap';
+import GlobalTotalChart from './GlobalTotalChart';
+import GlobalNewChart from './GlobalNewChart';
 
 export default class GlobalCard extends React.Component {
     state = {
@@ -14,7 +16,7 @@ export default class GlobalCard extends React.Component {
         const data = await response.json();
 
         console.log(data)
-        
+
         this.setState({ world: data[0], loading: false});
     }
     render() {
@@ -29,22 +31,36 @@ export default class GlobalCard extends React.Component {
                     <Card border="white" className="homepage-card">
                     <div>
                         <div>
-                            <h4 class="text-center">GLOBAL TOTAL CASES</h4>
-                            <h3 class="text-primary text-center">{this.state.world.globalData.Confirmed.toLocaleString()}</h3>
+                            <h4 className="text-center">GLOBAL TOTAL CASES</h4>
+                            <h3 className="text-primary text-center">{this.state.world.globalData.Confirmed.toLocaleString()}</h3>
                             <br></br>
-                            <p class="badge badge-warning">Active:</p> {this.state.world.globalData.Active.toLocaleString()}
+                            <Row>
+                            <Col xs={9} md={6}>
+                            <p className="badge badge-warning">Active:</p> {this.state.world.globalData.Active.toLocaleString()}
                             <br></br>
-                            <p class="badge badge-success">Recovered:</p> {this.state.world.globalData.Recovered.toLocaleString()}
+                            <p className="badge badge-success">Recovered:</p> {this.state.world.globalData.Recovered.toLocaleString()}
                             <br></br>
-                            <p class="badge badge-danger">Deaths:</p> {this.state.world.globalData.Deaths.toLocaleString()}
+                            <p className="badge badge-danger">Deaths:</p> {this.state.world.globalData.Deaths.toLocaleString()}
+                            </Col>
+                            <Col xs={3} md={6}>
+                            <GlobalTotalChart/>
+                            </Col>
+                            </Row>
                             <br></br>
 
-                            <h4 class="text-center">GLOBAL NEW CASES</h4>
-                            <h3 class="text-primary text-center">{this.state.world.globalData.NewConfirmed.toLocaleString()}</h3>
+                            <h4 className="text-center">GLOBAL NEW CASES</h4>
+                            <h3 className="text-primary text-center">{this.state.world.globalData.NewConfirmed.toLocaleString()}</h3>
                             <br></br>
-                            <p class="badge badge-success">Recovered:</p> {this.state.world.globalData.NewRecovered.toLocaleString()}
+                            <Row>
+                            <Col xs={9} md={6}>
+                            <p className="badge badge-success">Recovered:</p> {this.state.world.globalData.NewRecovered.toLocaleString()}
                             <br></br>
-                            <p class="badge badge-danger">Deaths: </p> {this.state.world.globalData.NewDeaths.toLocaleString()}
+                            <p className="badge badge-danger">Deaths: </p> {this.state.world.globalData.NewDeaths.toLocaleString()}
+                            </Col>
+                            <Col xs={3} md={6}>
+                            <GlobalNewChart/>
+                            </Col>
+                            </Row>
                             <br></br>
                             <br></br>
                             <i>Last Updated: <Moment format="MMMM Do YYYY hh:mm a">{this.state.world.globalData.Last_Update}</Moment></i>

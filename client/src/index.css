@@ -50,8 +50,8 @@ code {
 }
 
 .homepage-card {
-  padding: 20px;
-  margin: 20px;
+  padding: 70px;
+  margin: 50px;
 }
 
 @media screen and (max-width: 768px) {

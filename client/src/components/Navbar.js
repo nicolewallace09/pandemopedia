@@ -16,7 +16,7 @@ const AppNavbar = () => {
       <Navbar bg='danger' variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-           <strong>Pandem<span class="title">opedia</span></strong> <img src="https://img.icons8.com/cotton/50/000000/protection-mask--v6.png" alt="mask-icon"/>
+           <strong>Pandem<span className="title">opedia</span></strong> <img src="https://img.icons8.com/cotton/50/000000/protection-mask--v6.png" alt="mask-icon"/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
