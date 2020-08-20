@@ -1,3 +1,8 @@
+
+// api for state and city
+var apiUrlAllData4 = "https://corona.azure-api.net/country/us/:state/:city"
+var apiUrlAllData5 = "https://corona.azure-api.net/country/us/California/Los Angeles"
+
 import React from 'react';
 import { Card, Spinner} from 'react-bootstrap';
 import Moment from 'react-moment';
