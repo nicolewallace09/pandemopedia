@@ -35,14 +35,14 @@ export default class GlobalCard extends React.Component {
                             <h3 className="text-primary text-center">{this.state.world.globalData.Confirmed.toLocaleString()}</h3>
                             <br></br>
                             <Row>
-                            <Col xs={9} md={7}>
+                            <Col xs={9} md={6}>
                             <p className="badge badge-warning">Active:</p> {this.state.world.globalData.Active.toLocaleString()}
                             <br></br>
                             <p className="badge badge-success">Recovered:</p> {this.state.world.globalData.Recovered.toLocaleString()}
                             <br></br>
                             <p className="badge badge-danger">Deaths:</p> {this.state.world.globalData.Deaths.toLocaleString()}
                             </Col>
-                            <Col xs={3} md={3}>
+                            <Col xs={3} md={6}>
                             <GlobalTotalChart/>
                             </Col>
                             </Row>
@@ -51,12 +51,12 @@ export default class GlobalCard extends React.Component {
                             <h3 className="text-primary text-center">{this.state.world.globalData.NewConfirmed.toLocaleString()}</h3>
                             <br></br>
                             <Row>
-                            <Col xs={9} md={7}>
+                            <Col xs={9} md={6}>
                             <p className="badge badge-success">Recovered:</p> {this.state.world.globalData.NewRecovered.toLocaleString()}
                             <br></br>
                             <p className="badge badge-danger">Deaths: </p> {this.state.world.globalData.NewDeaths.toLocaleString()}
                             </Col>
-                            <Col xs={3} md={3}>
+                            <Col xs={3} md={6}>
                             <GlobalNewChart/>
                             </Col>
                             </Row>
