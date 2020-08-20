@@ -11,7 +11,7 @@ const StateCard = ({value, region}) => {
   return (
     <>
     <div>
-            <Card border="black" className="homepage-card">
+            <Card border="black" className="homepage-card" style={{ paddingTop: 10, paddingLeft: 10, paddingBottom: 10}}>
              <div>
                 <div>
                     <h1>Your Search Results:</h1>
@@ -34,7 +34,7 @@ const StateCard = ({value, region}) => {
                     <br></br>
                     </Col>
                     </Row>
-                    <i>Last Updated: <Moment format="MMMM Do, YYYY hh:mm a">{value.Last_Update}</Moment></i>
+                    Last Updated: <Moment format="MMMM Do, YYYY hh:mm a">{value.Last_Update}</Moment>
                 </div>
             </div>
             </Card>

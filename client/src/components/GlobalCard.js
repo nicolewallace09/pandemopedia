@@ -60,7 +60,7 @@ export default class GlobalCard extends React.Component {
                             <GlobalNewChart/>
                             </Col>
                             </Row>
-                            <i><b>Last Updated:</b></i> <Moment format="MMMM Do, YYYY hh:mm a">{this.state.world.globalData.Last_Update}</Moment>
+                            Last Updated: <Moment format="MMMM Do, YYYY hh:mm a">{this.state.world.globalData.Last_Update}</Moment>
                         </div>
                     </div>
                     </Card>
