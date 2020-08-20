@@ -5,7 +5,8 @@ import GlobalCard from '../components/GlobalCard';
 import CountryCard from '../components/CountryCard';
 import StateCard from '../components/StateCard';
 import { searchByState } from '../utils/API';
-import StateCard2 from '../components/StateCard2'
+//import StateCard2 from '../components/StateCard'
+
 
 
 
@@ -50,36 +51,46 @@ const Homepage = () => {
       const data = await response.json();
       console.log(data);
 
-      
-      
-      
-
-    stateData = {
+      stateData = [{
         confirmed: data.Confirmed,
         deaths: data.Deaths,
         newConfirmed: data.NewConfirmed,
         newDeaths: data.NewDeaths,
         lastUpdate: data.Last_Update,
-      };
+      }];
 
 
     
-      console.log(stateData);
-      console.log('total cases', data.Confirmed);
-      console.log('total deaths', data.Deaths);
-      console.log('new cases', data.NewConfirmed);
-      console.log('new deaths', data.NewDeaths);
-      console.log('update time', data.Last_Update);
+      // console.log(stateData);
+      // console.log('total cases', data.Confirmed);
+      // console.log('total deaths', data.Deaths);
+      // console.log('new cases', data.NewConfirmed);
+      // console.log('new deaths', data.NewDeaths);
+      // console.log('update time', data.Last_Update);
 
 
-      setSearchedUsState(stateData);
+      
       setSearchInput(searchInput);
+      //setSearchedUsState(searchedUsState);
+      //setSearchedUsState([...searchedUsState, stateData]);
+      setSearchedUsState(...searchedUsState, stateData);
+      //stateData = {}
+      
+      console.log('searchedUsState in function', searchedUsState)
          
       } catch (err) {
         console.error(err);
       }
   };
+    console.log('searchUsState not in function', searchedUsState)
 
+    // const renderSingleSearch = (singleSearch, i) => {
+      
+    //   return ( 
+    //     <StateCard2 search = {singleSearch} key = {i}/>
+    //   )}
+  
+      
     return (
         <>
         {/* <div class="jumbotron-fluid" ></div> */}
@@ -125,10 +136,32 @@ const Homepage = () => {
 
               </Row>
         </Container>
-
+        <Container>
+            <Row>
+              <Col sm='12' md={{ size: 6, offset: 0.1 }}>
+                { searchedUsState.length > 0 ? <StateCard value = {searchedUsState[0]} /> : null }
+                {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
+                */}
+                {/* {JSON.stringify(searchedUsState)} */}
+              
+              </Col>
+              <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+                    
+              </Col>
+            </Row>
+            
+        </Container>
+        {/* {JSON.stringify(searchedUsState)} */}
+       
+        {/* { searchedUsState.length > 0 ? <StateCard2 value = {searchedUsState[0]} /> : null } */}
+        {/* { searchedUsState.length > 0 ? <StateCard2 region = {searchInput} /> : null }
+         */}
+        
+        {/* { searchedUsState.map(renderSingleSearch)} */}
         <Example/>
-        <StateCard2 test = { "test" }  />
-        <StateCard2  onSubmit/> 
+        
+        
+        
         </>
     );
 };
