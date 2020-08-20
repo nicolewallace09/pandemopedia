@@ -59,7 +59,6 @@ const Homepage = () => {
       setSearchInput(searchInput);
       //setSearchedUsState(searchedUsState);
       setSearchedUsState(...searchedUsState, stateData);
-         
       } catch (err) {
         console.error(err);
       }
@@ -107,6 +106,22 @@ const Homepage = () => {
           </Container>
         </Jumbotron>
 
+        <Container fluid>
+            <Row>
+                <Col sm={12} md={12}>
+                    { searchedUsState.length > 0 ? <StateCard value = {searchedUsState[0]} region = {searchInput} /> : null }
+                    {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
+                    */}
+                    {/* {JSON.stringify(searchedUsState)} */}
+              
+                </Col>
+                <Col sm="12" md={{ size: 12, offset: 0.1 }}>
+                    {/* CityCard will go here */}
+                    
+                </Col>
+            </Row>
+        </Container> 
+
         <Container>
           <h1 className="header text-center">COVID-19 Tracker</h1>
         </Container>
@@ -122,22 +137,7 @@ const Homepage = () => {
                 </Col>
 
             </Row>
-        </Container>
-        <Container>
-            <Row>
-                <Col sm='12' md={{ size: 6, offset: 0.1 }}>
-                    { searchedUsState.length > 0 ? <StateCard value = {searchedUsState[0]} region = {searchInput} /> : null }
-                    {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
-                    */}
-                    {/* {JSON.stringify(searchedUsState)} */}
-              
-                </Col>
-                <Col sm="12" md={{ size: 6, offset: 0.1 }}>
-                    {/* CityCard will go here */}
-                    
-                </Col>
-            </Row>
-        </Container>  
+        </Container> 
       </>
     );
 };
