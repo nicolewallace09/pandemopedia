@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Form, Col, Button, Row} from 'react-bootstrap';
-import Example from '../components/Charts'
 import GlobalCard from '../components/GlobalCard';
 import CountryCard from '../components/CountryCard';
 import StateCard from '../components/StateCard';
 import { searchByState } from '../utils/API';
-//import StateCard2 from '../components/StateCard'
-
 
 
 
@@ -59,73 +56,59 @@ const Homepage = () => {
         lastUpdate: data.Last_Update,
       }];
 
-
-    
-      // console.log(stateData);
-      // console.log('total cases', data.Confirmed);
-      // console.log('total deaths', data.Deaths);
-      // console.log('new cases', data.NewConfirmed);
-      // console.log('new deaths', data.NewDeaths);
-      // console.log('update time', data.Last_Update);
-
-
-      
       setSearchInput(searchInput);
       //setSearchedUsState(searchedUsState);
-      //setSearchedUsState([...searchedUsState, stateData]);
       setSearchedUsState(...searchedUsState, stateData);
-      //stateData = {}
-      
-      console.log('searchedUsState in function', searchedUsState)
          
       } catch (err) {
         console.error(err);
       }
   };
-    console.log('searchUsState not in function', searchedUsState)
 
-    // const renderSingleSearch = (singleSearch, i) => {
+   
+    // Will use this function with the savedSearch function
+  /*  
+    const renderSingleSearch = (singleSearch, i) => {
       
-    //   return ( 
-    //     <StateCard2 search = {singleSearch} key = {i}/>
-    //   )}
-  
+      return ( 
+        <StateCard2 search = {singleSearch} key = {i}/>
+      )}
+  */
       
     return (
         <>
-        {/* <div class="jumbotron-fluid" ></div> */}
         <Jumbotron fluid className='text-light bg-danger' style={{ height: 560, clear: "both", paddingTop: 200, paddingLeft: 200}}>
+          <Container>
+            <h5>Search for your state</h5>
+            < Form onSubmit={handleFormSubmit}>
+              <Form.Row>
+                <Col xs={12} md={8}>
+                  <Form.Control
+                    name='searchInput'
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                    type='text'
+                    size='md'
+                    placeholder='Please enter a state'
+                  />
+                  < i className="app-claim">* This application is intended for US states only</i>
+                </Col>
+                <Col xs={12} md={4}>
+                  <Button type='submit' variant='danger' size='md'>
+                    Search
+                  </Button>
+                </Col>
+              </Form.Row>
+            </Form>
+          </Container>
+        </Jumbotron>
+
         <Container>
-          <h5>Search for your state</h5>
-          <Form onSubmit={handleFormSubmit}>
-            <Form.Row>
-              <Col xs={12} md={8}>
-                <Form.Control
-                  name='searchInput'
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  type='text'
-                  size='md'
-                  placeholder='Please enter a state'
-                />
-                <i className="app-claim">* This application is intended for US states only</i>
-              </Col>
-              <Col xs={12} md={4}>
-                <Button type='submit' variant='danger' size='md'>
-                  Search
-                </Button>
-              </Col>
-            </Form.Row>
-          </Form>
+          <h1 className="header text-center">COVID-19 Tracker</h1>
         </Container>
-      </Jumbotron>
 
-      <Container>
-        <h1 className="header text-center">COVID-19 Tracker</h1>
-      </Container>
-
-      <Container fluid>
-              <Row>
+        <Container fluid>
+            <Row>
                 <Col sm="12" md={{ size: 6, offset: 0.1 }}>
                     <GlobalCard/>
                 </Col>
@@ -134,37 +117,25 @@ const Homepage = () => {
                     <CountryCard/>
                 </Col>
 
-              </Row>
+            </Row>
         </Container>
         <Container>
             <Row>
-              <Col sm='12' md={{ size: 6, offset: 0.1 }}>
-                { searchedUsState.length > 0 ? <StateCard value = {searchedUsState[0]} /> : null }
-                {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
-                */}
-                {/* {JSON.stringify(searchedUsState)} */}
+                <Col sm='12' md={{ size: 6, offset: 0.1 }}>
+                    { searchedUsState.length > 0 ? <StateCard value = {searchedUsState[0]} /> : null }
+                    {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
+                    */}
+                    {/* {JSON.stringify(searchedUsState)} */}
               
-              </Col>
-              <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+                </Col>
+                <Col sm="12" md={{ size: 6, offset: 0.1 }}>
+                    {/* CityCard will go here */}
                     
-              </Col>
+                </Col>
             </Row>
-            
-        </Container>
-        {/* {JSON.stringify(searchedUsState)} */}
-       
-        {/* { searchedUsState.length > 0 ? <StateCard2 value = {searchedUsState[0]} /> : null } */}
-        {/* { searchedUsState.length > 0 ? <StateCard2 region = {searchInput} /> : null }
-         */}
-        
-        {/* { searchedUsState.map(renderSingleSearch)} */}
-        <Example/>
-        
-        
-        
-        </>
+        </Container>  
+      </>
     );
 };
-
 
 export default Homepage; 
