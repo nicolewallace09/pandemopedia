@@ -146,7 +146,7 @@ const Homepage = () => {
 
       <Container fluid className="time-series">
       <h1 className="time-header text-center">US Time Series (30 Day Trend)</h1><br></br>
-            <Row style={{paddingLeft: 200, paddingBottom: 100}}>
+            <Row style={{paddingLeft: 25, paddingBottom: 100}}>
               <Col sm="12" md="6">
                 <TimelineCases/>
               </Col>
