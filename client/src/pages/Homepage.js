@@ -57,13 +57,18 @@ const Homepage = () => {
         lastUpdate: data.Last_Update,
       }];
 
+      //setSearchInput(searchInput);
       setSearchInput(searchInput);
       //setSearchedUsState(searchedUsState);
       setSearchedUsState(...searchedUsState, stateData);
       } catch (err) {
         console.error(err);
       }
+      
   };
+
+  // set state back to '' with a function call
+
    
     // Will use this function with the savedSearch function
   /*  

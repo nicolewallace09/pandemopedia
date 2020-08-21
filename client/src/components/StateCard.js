@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 
 
 const StateCard = ({value, region}) => {
-
+   
   console.log('Is value data being passed', value)
   console.log('Is region data being passed', region)
   
@@ -21,7 +21,7 @@ const StateCard = ({value, region}) => {
                     <h4 className="text-center">{region.toUpperCase()} TOTAL CASES</h4> 
                     <h3 className="text-primary text-center">{value.confirmed.toLocaleString()}</h3>
                     <br></br>
-                    <p class="badge badge-danger">Deaths:</p> {value.deaths.toLocaleString()}
+                    <p className="badge badge-danger">Deaths:</p> {value.deaths.toLocaleString()}
                     <br></br>
                     </Col>
                 

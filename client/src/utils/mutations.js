@@ -31,4 +31,7 @@ export const ADD_USER = gql`
 
 // mutation to save U.S. state search
 // export const SAVE_STATE = gql`
-//     mutation saveState()
+//     mutation saveState($name: String!, )
+
+
+// mutation to remove U.S. state search

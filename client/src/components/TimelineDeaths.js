@@ -5,7 +5,7 @@ import {
 
 
 function Chart() {
-    const [apiData, setApiData] = useState({});
+    const [apiData, setApiData] = useState([]);
 
     // comment
     useEffect(() => {
