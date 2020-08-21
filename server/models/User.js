@@ -2,8 +2,8 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// // import schema from Book.js
-// const bookSchema = require('./Book');
+// import schema from State.js
+const stateSchema = require('./State');
 
 const userSchema = new Schema(
   {
@@ -22,8 +22,8 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    // // set savedBooks to be an array of data that adheres to the bookSchema
-    // savedBooks: [bookSchema],
+    // set savedBooks to be an array of data that adheres to the bookSchema
+    savedStateSearch: [stateSchema],
   },
   // set this to use virtual below
   {
