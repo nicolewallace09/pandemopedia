@@ -7,22 +7,25 @@ import StateCard from '../components/StateCard';
 import { searchByState } from '../utils/API';
 import TimelineCases from '../components/TimelineCases';
 import TimelineDeaths from '../components/TimelineDeaths';
+import { saveStateIds, getSavedStateIds } from '../utils/localStorage';
+import { useMutation } from '@apollo/react-hooks';
+import { SAVE_STATE } from '../utils/mutations';
 
 
 const Homepage = () => {
 
   // create state for holding returned api data
-  const [searchedUsState, setSearchedUsState] = useState([]); //////
+  const [searchedUsState, setSearchedUsState] = useState([]);
 
   // create state for holding our search field data
-  const [searchInput, setSearchInput] = useState(''); //////
+  const [searchInput, setSearchInput] = useState(''); 
 
   let stateData = {};
 
   // create state to hold saved stateID values
   const [savedStateIds, setSavedStateIds] = useState(''); // still need to define and pass in getSavedStateIds() to be consistent with BookSearch.js
 
-  //const [saveState, { error }] = useMutation(SAVE_STATE);  // still need to define([
+  const [saveState, { error }] = useMutation(SAVE_STATE);  // still need to define([
 
   // set up useEffect hook to save 'saveStateIds' list to localStorage on component unmount
   // useEffect(() => {
@@ -49,18 +52,21 @@ const Homepage = () => {
       const data = await response.json();
       console.log(data);
 
-      stateData = [{
+      stateData = {
         confirmed: data.Confirmed,
         deaths: data.Deaths,
         newConfirmed: data.NewConfirmed,
         newDeaths: data.NewDeaths,
         lastUpdate: data.Last_Update,
-      }];
+        state: searchInput,
+      };
 
       //setSearchInput(searchInput);
-      setSearchInput(searchInput);
+      setSearchInput('');
       //setSearchedUsState(searchedUsState);
-      setSearchedUsState(...searchedUsState, stateData);
+      setSearchedUsState([...searchedUsState, stateData]);
+      //setSearchedUsState(stateData);
+      // try using filter so that I can iterate through the data
       } catch (err) {
         console.error(err);
       }
@@ -114,7 +120,7 @@ const Homepage = () => {
         <Container fluid>
             <Row>
                 <Col sm={12} md={12}>
-                    { searchedUsState.length > 0 ? <StateCard value = {searchedUsState[0]} region = {searchInput} /> : null }
+                    { searchedUsState.length > 0 ? <StateCard value = {searchedUsState[0]}  /> : null }
                     {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
                     */}
                     {/* {JSON.stringify(searchedUsState)} */}
@@ -146,7 +152,7 @@ const Homepage = () => {
 
       <Container fluid className="time-series">
       <h1 className="time-header text-center">US Time Series (30 Day Trend)</h1><br></br>
-            <Row style={{paddingLeft: 200, paddingBottom: 100}}>
+            <Row style={{paddingLeft: 25, paddingBottom: 100}}>
               <Col sm="12" md="6">
                 <TimelineCases/>
               </Col>
