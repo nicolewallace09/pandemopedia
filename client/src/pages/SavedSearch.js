@@ -54,12 +54,12 @@ const SavedStateSearch = () => {
         <Container>
             <h1>Viewing saved searches!</h1>
         </Container>
-        {/* <Container>
+        <Container>
             <h2>
                 {userData.savedStateSearch.length ? `Viewing ${userData.savedStateSearch.length} saved ${userData.savedStateSearch.length === 1 ? 'search' : 'searches'}:`
                 : 'You have no saved searches!'}
             </h2>
-        </Container> */}
+        </Container>
      </>
    );
 };

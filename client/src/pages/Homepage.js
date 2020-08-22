@@ -161,7 +161,12 @@ const Homepage = () => {
                     {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
                     */}
                     {/* {JSON.stringify(searchedUsState)} */}
-              
+                    {Auth.loggedIn() && searchedUsState.length > 0 && (
+                      <Button>
+                        Save    
+                      </Button>
+                    )}
+                    
                 </Col>
                 <Col sm="12" md={{ size: 12, offset: 0.1 }}>
                     {/* CityCard will go here */}
