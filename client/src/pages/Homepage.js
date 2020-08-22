@@ -37,6 +37,11 @@ const Homepage = () => {
   //   return () => setSearchedUsState([])
   // })
 
+  useEffect(() => {
+    if (searchedUsState.length > 0) {
+    return () => setSearchedUsState([])}
+    })
+
   // create method to search for US States and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -75,8 +80,16 @@ const Homepage = () => {
       } catch (err) {
         console.error(err);
       }
+
+      // set state back to initial state after search
+  
       
   };
+
+  // useEffect(() => {
+  //   if (searchedUsState.length > 0) {
+  //   return () => setSearchedUsState([])}
+  //   })
 
   // set state back to '' with a function call
 
