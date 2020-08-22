@@ -24,7 +24,66 @@ function Chart() {
         // comment
         setApiData(
             [{
-                name: data[30].date,
+                Deaths: data[60].deathIncrease,
+            }, {
+                Deaths: data[59].deathIncrease,
+            }, {
+                Deaths: data[58].deathIncrease,
+            }, {
+                Deaths: data[57].deathIncrease,
+            }, {
+                Deaths: data[56].deathIncrease,
+            }, {
+                Deaths: data[55].deathIncrease,
+            }, {
+                Deaths: data[54].deathIncrease,
+            }, {
+                Deaths: data[53].deathIncrease,
+            }, {
+                Deaths: data[52].deathIncrease,
+            }, {
+                Deaths: data[51].deathIncrease,
+            }, {
+                Deaths: data[50].deathIncrease,
+            }, {
+                Deaths: data[49].deathIncrease,
+            }, {
+                Deaths: data[48].deathIncrease,
+            }, {
+                Deaths: data[47].deathIncrease,
+            }, {
+                Deaths: data[46].deathIncrease,
+            }, {
+                Deaths: data[45].deathIncrease,
+            }, {
+                Deaths: data[44].deathIncrease,
+            }, {
+                Deaths: data[43].deathIncrease,
+            }, {
+                Deaths: data[42].deathIncrease,
+            }, {
+                Deaths: data[41].deathIncrease,
+            }, {
+                Deaths: data[40].deathIncrease,
+            }, {
+                Deaths: data[39].deathIncrease,
+            }, {
+                Deaths: data[38].deathIncrease,
+            }, {
+                Deaths: data[37].deathIncrease,
+            }, {
+                Deaths: data[36].deathIncrease,
+            }, {
+                Deaths: data[35].deathIncrease,
+            }, {
+                Deaths: data[34].deathIncrease,
+            }, {
+                Deaths: data[33].deathIncrease,
+            }, {
+                Deaths: data[32].deathIncrease,
+            }, {
+                Deaths: data[31].deathIncrease,
+            }, {
                 Deaths: data[30].deathIncrease,
             }, {
                 Deaths: data[29].deathIncrease,
