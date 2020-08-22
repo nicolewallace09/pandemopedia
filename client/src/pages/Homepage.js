@@ -10,6 +10,7 @@ import TimelineDeaths from '../components/TimelineDeaths';
 import { saveStateIds, getSavedStateIds } from '../utils/localStorage';
 import { useMutation } from '@apollo/react-hooks';
 import { SAVE_STATE } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 
 const Homepage = () => {
@@ -23,14 +24,21 @@ const Homepage = () => {
   let stateData = {};
 
   // create state to hold saved stateID values
-  const [savedStateIds, setSavedStateIds] = useState(''); // still need to define and pass in getSavedStateIds() to be consistent with BookSearch.js
+  const [savedStateIds, setSavedStateIds] = useState(getSavedStateIds()); // still need to define and pass in getSavedStateIds() to be consistent with BookSearch.js
 
-  const [saveState, { error }] = useMutation(SAVE_STATE);  // still need to define([
+  const [saveState, { error }] = useMutation(SAVE_STATE);  // still need to define
 
-  // set up useEffect hook to save 'saveStateIds' list to localStorage on component unmount
-  // useEffect(() => {
-  // return () => saveStateIds(savedStateIds);
-  //});
+  // set up useEffect hook to save 'saveStateIds' list to localStorage
+  useEffect(() => {
+  return () => saveStateIds(savedStateIds);
+  });
+
+  
+  // set setSearchUsState back to original state after state search
+  useEffect(() => {
+    if (searchedUsState.length > 0) {
+    return () => setSearchedUsState([])}
+    })
 
   // create method to search for US States and set state on form submit
   const handleFormSubmit = async (event) => {
@@ -70,11 +78,11 @@ const Homepage = () => {
       } catch (err) {
         console.error(err);
       }
-      
   };
 
-  // set state back to '' with a function call
+  
 
+  
    
     // Will use this function with the savedSearch function
   /*  
@@ -85,7 +93,36 @@ const Homepage = () => {
       )}
   */
 
-  const getSavedStateIds = () => {
+  // function to handle saving a state to the database
+  const handleSaveState = async (stateId) => {
+    // find the state in `searchedUsStates` state by the matching id
+    const stateInput = searchedUsState.find((search) => search.stateId === stateId);
+
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const { data } = await saveState({
+        variables: { input: stateInput }
+      });
+      console.log('save search', stateInput);
+      console.log('save search data', data);
+    
+
+    if (error) {
+      throw new Error('something went wrong!');
+    }
+
+    // if search successfuly saves to user's account, save state ID to state
+    setSavedStateIds([...savedStateIds, stateInput.stateId]);
+    
+  } catch (err) {
+      console.error(err);
+    }
 
   }
       
@@ -124,7 +161,12 @@ const Homepage = () => {
                     {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
                     */}
                     {/* {JSON.stringify(searchedUsState)} */}
-              
+                    {Auth.loggedIn() && searchedUsState.length > 0 && (
+                      <Button>
+                        Save    
+                      </Button>
+                    )}
+                    
                 </Col>
                 <Col sm="12" md={{ size: 12, offset: 0.1 }}>
                     {/* CityCard will go here */}

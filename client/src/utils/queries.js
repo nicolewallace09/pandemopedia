@@ -8,6 +8,16 @@ export const GET_ME = gql`
       _id
       username
       email
+      stateCount
+      savedStateSearch {
+        name
+        confirmed
+        newConfirmed
+        deaths
+        newDeaths
       }
     }
+  }
 `;
+
+
