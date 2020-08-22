@@ -23,14 +23,19 @@ const Homepage = () => {
   let stateData = {};
 
   // create state to hold saved stateID values
-  const [savedStateIds, setSavedStateIds] = useState(''); // still need to define and pass in getSavedStateIds() to be consistent with BookSearch.js
+  //const [savedStateIds, setSavedStateIds] = useState(''); // still need to define and pass in getSavedStateIds() to be consistent with BookSearch.js
 
-  const [saveState, { error }] = useMutation(SAVE_STATE);  // still need to define([
+  //const [saveState, { error }] = useMutation(SAVE_STATE);  // still need to define([
 
   // set up useEffect hook to save 'saveStateIds' list to localStorage on component unmount
   // useEffect(() => {
   // return () => saveStateIds(savedStateIds);
   //});
+
+  // set state back to initial state after search
+  // useEffect(() => {
+  //   return () => setSearchedUsState([])
+  // })
 
   // create method to search for US States and set state on form submit
   const handleFormSubmit = async (event) => {
