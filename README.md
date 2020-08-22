@@ -18,7 +18,10 @@ The user should clone the repository from GitHub and install dependencies. For d
 
 ## Usage 
 This application was designed for users to view global numbers of pandemic data and view their own state information - designed for United States users.<br>
-Please view live link deployed on [Heroku](https://pandemopedia.herokuapp.com/)
+Please view live link deployed on [Heroku](https://pandemopedia.herokuapp.com/)<br>
+<img src="client/public/screen1.png">
+<img src="client/public/screen2.png">
+<img src="client/public/screen3.png">
 
 ## License 
 This project is license under MIT
