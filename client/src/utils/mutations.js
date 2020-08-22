@@ -33,11 +33,11 @@ export const ADD_USER = gql`
 
 // mutation to save U.S. state search
 export const SAVE_STATE = gql`
-  mutation saveState($input: stateInput!) {
-    saveState(input: $input) {
+  mutation saveStateSearch($input: stateInput!) {
+    saveStateSearch(input: $input) {
       _id
-      name
-      savedStates {
+      username
+      savedStateSearch {
         stateId
         name
         confirmed

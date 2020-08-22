@@ -18,7 +18,7 @@ const stateSchema = new Schema({
     type: Number,
   },
   // saved search id
-  searchId: {
+  stateId: {
     type: String,
     required: true,
   },

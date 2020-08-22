@@ -19,7 +19,9 @@ const Homepage = () => {
   const [searchedUsState, setSearchedUsState] = useState([]);
 
   // create state for holding our search field data
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState(''); 
+
+  const [holdStateId, setHoldStateId] = useState('');
 
   let stateData = {};
 
@@ -30,16 +32,15 @@ const Homepage = () => {
 
   // set up useEffect hook to save 'saveStateIds' list to localStorage
   useEffect(() => {
-    return () => saveStateIds(savedStateIds);
+  return () => saveStateIds(savedStateIds);
   });
 
-
+  
   // set setSearchUsState back to original state after state search
   useEffect(() => {
     if (searchedUsState.length > 0) {
-      return () => setSearchedUsState([])
-    }
-  })
+    return () => setSearchedUsState([])}
+    })
 
   // create method to search for US States and set state on form submit
   const handleFormSubmit = async (event) => {
@@ -68,9 +69,12 @@ const Homepage = () => {
         newDeaths: data.NewDeaths,
         lastUpdate: data.Last_Update,
         state: searchInput,
+        stateId: data.Slug_State
       };
-
+      
+      setSavedStateIds([...savedStateIds, stateData.stateId]);
       //setSearchInput(searchInput);
+      setHoldStateId(stateData.stateId);
       setSearchInput('');
       //setSearchedUsState(searchedUsState);
       setSearchedUsState([...searchedUsState, stateData]);
@@ -81,11 +85,7 @@ const Homepage = () => {
     }
   };
 
-
-
-
-
-  // Will use this function with the savedSearch function
+    // Will use this function with the savedSearch function
   /*  
     const renderSingleSearch = (singleSearch, i) => {
       
@@ -95,10 +95,11 @@ const Homepage = () => {
   */
 
   // function to handle saving a state to the database
-  const handleSaveState = async (stateId) => {
+  const handleSaveState = async () => {
     // find the state in `searchedUsStates` state by the matching id
-    const stateInput = searchedUsState.find((search) => search.stateId === stateId);
-
+    console.log(savedStateIds)
+    const stateInput = savedStateIds.find((search) => search === holdStateId);
+    
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -108,20 +109,22 @@ const Homepage = () => {
 
     try {
       const { data } = await saveState({
-        variables: { input: stateInput }
+        variables: { input: holdStateId }
       });
-      console.log('save search', stateInput);
+      console.log('save search', holdStateId);
       console.log('save search data', data);
+    
 
+    if (error) {
+      throw new Error('something went wrong!');
+    }
 
-      if (error) {
-        throw new Error('something went wrong!');
-      }
-
-      // if search successfuly saves to user's account, save state ID to state
-      setSavedStateIds([...savedStateIds, stateInput.stateId]);
-
-    } catch (err) {
+    // if search successfuly saves to user's account, save state ID to state
+    setSavedStateIds([...savedStateIds, holdStateId]);
+   
+    setHoldStateId('')
+    
+  } catch (err) {
       console.error(err);
     }
 
@@ -205,20 +208,25 @@ const Homepage = () => {
         </Jumbotron>
 
         <Container fluid>
-          <Row>
-            <Col sm={12} md={12}>
-              {searchedUsState.length > 0 ? <StateCard value={searchedUsState[0]} region={searchInput} /> : null}
-              {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
+            <Row>
+                <Col sm={12} md={12}>
+                    { searchedUsState.length > 0 ? <StateCard value = {searchedUsState[0]}  /> : null }
+                    {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
                     */}
-              {/* {JSON.stringify(searchedUsState)} */}
-
-            </Col>
-            <Col sm="12" md={{ size: 12, offset: 0.1 }}>
-              {/* CityCard will go here */}
-
-            </Col>
-          </Row>
-        </Container>
+                    {/* {JSON.stringify(searchedUsState)} */}
+                    {Auth.loggedIn() && searchedUsState.length > 0 && (
+                      <Button onClick = {handleSaveState}>
+                        Save    
+                      </Button>
+                    )}
+                    
+                </Col>
+                <Col sm="12" md={{ size: 12, offset: 0.1 }}>
+                    {/* CityCard will go here */}
+                    
+                </Col>
+            </Row>
+        </Container> 
 
         <Container>
           {/* <h1 className="header text-center">COVID-19 Tracker</h1> */}
@@ -237,12 +245,12 @@ const Homepage = () => {
           </Row>
         </Container>
 
-        <Container fluid className="time-series">
-          <h1 className="time-header text-center">US Time Series (60 Day Trend)</h1><br></br>
-          <Row style={{ paddingLeft: 25, paddingBottom: 100 }}>
-            <Col sm="12" md="6">
-              <TimelineCases />
-            </Col>
+      <Container fluid className="time-series">
+      <h1 className="time-header text-center">US Time Series (60 Day Trend)</h1><br></br>
+            <Row style={{paddingLeft: 25, paddingBottom: 100}}>
+              <Col sm="12" md="6">
+                <TimelineCases/>
+              </Col>
 
             <Col sm="12" md="6">
               <TimelineDeaths />
