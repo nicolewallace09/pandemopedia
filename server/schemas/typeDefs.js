@@ -17,7 +17,7 @@ const typeDefs = gql`
     newConfirmed: Int
     deaths: Int
     newDeaths: Int
-    searchId: ID  
+    stateId: String 
 }
 
   type Auth {
@@ -31,7 +31,7 @@ const typeDefs = gql`
     newConfirmed: Int
     deaths: Int
     newDeaths: Int
-    searchId: ID
+    stateId: String
   }
 
   type Query {

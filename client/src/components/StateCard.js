@@ -5,8 +5,7 @@ import Moment from 'react-moment';
 
 const StateCard = ({value}) => {
    
-  console.log('Is value data being passed', value)
-  //console.log('Is region data being passed', region)
+  console.log(value);
   
   return (
     <>
