@@ -62,7 +62,6 @@ const Homepage = () => {
       const data = await response.json();
       console.log(data);
 
-
       stateData = {
         confirmed: data.Confirmed,
         deaths: data.Deaths,
@@ -81,16 +80,11 @@ const Homepage = () => {
       setSearchedUsState([...searchedUsState, stateData]);
       //setSearchedUsState(stateData);
       // try using filter so that I can iterate through the data
-      } catch (err) {
-        console.error(err);
-      }
-      
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  
-
-  
-   
     // Will use this function with the savedSearch function
   /*  
     const renderSingleSearch = (singleSearch, i) => {
@@ -135,10 +129,59 @@ const Homepage = () => {
     }
 
   }
-      
-    return (
+
+  return (
         <>
-        <Jumbotron fluid className='text-light bg-danger' style={{ height: 560, clear: "both", paddingTop: 200, paddingLeft: 200}}>
+      <Jumbotron fluid className='text-light bg-danger' style={{ height: 560, clear: "both", paddingTop: 200, paddingLeft: 200 }}>
+        <Container>
+          <h5>Search for your state</h5>
+          < Form onSubmit={handleFormSubmit}>
+            <Form.Row>
+              <Col xs={12} md={8}>
+                <Form.Control
+                  name='searchInput'
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
+                  type='text'
+                  size='md'
+                  placeholder='Please enter a state'
+                />
+                < i className="app-claim">* This application is intended for US states only</i>
+              </Col>
+              <Col xs={12} md={4}>
+                <Button type='submit' variant='danger' size='md'>
+                  Search
+                  </Button>
+              </Col>
+            </Form.Row>
+          </Form>
+        </Container>
+      </Jumbotron>
+
+      <Container fluid>
+        <Row>
+          <Col sm={12} md={12}>
+            {searchedUsState.length > 0 ? <StateCard value={searchedUsState[0]} /> : null}
+            {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
+                    */}
+            {/* {JSON.stringify(searchedUsState)} */}
+            {Auth.loggedIn() && searchedUsState.length > 0 && (
+              <Button>
+                Save
+                      </Button>
+            )}
+
+          </Col>
+          <Col sm="12" md={{ size: 12, offset: 0.1 }}>
+            {/* CityCard will go here */}
+
+          </Col>
+        </Row>
+      </Container>
+
+      return (
+    <>
+        <Jumbotron fluid className='text-light bg-danger' style={{ height: 560, clear: "both", paddingTop: 200, paddingLeft: 200 }}>
           <Container>
             <h5>Search for your state</h5>
             < Form onSubmit={handleFormSubmit}>
@@ -191,16 +234,16 @@ const Homepage = () => {
         </Container>
 
         <Container fluid>
-            <Row>
-                <Col sm="12" md="6">
-                    <GlobalCard/>
-                </Col>
+          <Row>
+            <Col sm="12" md="6">
+              <GlobalCard />
+            </Col>
 
-                <Col sm="12" md="6">
-                  <CountryCard />
-                </Col>
-           </Row>
-      </Container>
+            <Col sm="12" md="6">
+              <CountryCard />
+            </Col>
+          </Row>
+        </Container>
 
       <Container fluid className="time-series">
       <h1 className="time-header text-center">US Time Series (60 Day Trend)</h1><br></br>
@@ -209,21 +252,21 @@ const Homepage = () => {
                 <TimelineCases/>
               </Col>
 
-              <Col sm="12" md="6">
-                <TimelineDeaths/>
-              </Col>
-            </Row>
+            <Col sm="12" md="6">
+              <TimelineDeaths />
+            </Col>
+          </Row>
 
 
-    
-            <Row>
-              <Col sm="12" md='12'>
-                    <center><img src="https://completemusicupdate.com/wp-content/uploads/2020/03/stopthespread1250.jpg" alt="stopspread" style={{paddingBottom: 100}}></img></center>
-              </Col>
-            </Row>
-      </Container>
+
+          <Row>
+            <Col sm="12" md='12'>
+              <center><img src="https://completemusicupdate.com/wp-content/uploads/2020/03/stopthespread1250.jpg" alt="stopspread" style={{ paddingBottom: 100 }}></img></center>
+            </Col>
+          </Row>
+        </Container>
       </>
-    );
-};
-
-export default Homepage; 
+      );
+    };
+    
+    export default Homepage; 

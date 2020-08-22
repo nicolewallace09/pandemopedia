@@ -1,0 +1,7 @@
+{
+    "name": "Pandemopedia",
+    "short_name": "Pandemopedia",
+    "description": "An app that allows you to to view Covid-19 data.",
+    "background_color": "#01579b",
+    "theme_color": "#ffffff"
+}
