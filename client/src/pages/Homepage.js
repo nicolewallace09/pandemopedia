@@ -21,6 +21,8 @@ const Homepage = () => {
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState(''); 
 
+  const [holdStateId, setHoldStateId] = useState('');
+
   let stateData = {};
 
   // create state to hold saved stateID values
@@ -60,6 +62,7 @@ const Homepage = () => {
       const data = await response.json();
       console.log(data);
 
+
       stateData = {
         confirmed: data.Confirmed,
         deaths: data.Deaths,
@@ -67,9 +70,12 @@ const Homepage = () => {
         newDeaths: data.NewDeaths,
         lastUpdate: data.Last_Update,
         state: searchInput,
+        stateId: data.Slug_State
       };
-
+      
+      setSavedStateIds([...savedStateIds, stateData.stateId]);
       //setSearchInput(searchInput);
+      setHoldStateId(stateData.stateId);
       setSearchInput('');
       //setSearchedUsState(searchedUsState);
       setSearchedUsState([...searchedUsState, stateData]);
@@ -78,6 +84,7 @@ const Homepage = () => {
       } catch (err) {
         console.error(err);
       }
+      
   };
 
   
@@ -94,10 +101,11 @@ const Homepage = () => {
   */
 
   // function to handle saving a state to the database
-  const handleSaveState = async (stateId) => {
+  const handleSaveState = async () => {
     // find the state in `searchedUsStates` state by the matching id
-    const stateInput = searchedUsState.find((search) => search.stateId === stateId);
-
+    console.log(savedStateIds)
+    const stateInput = savedStateIds.find((search) => search === holdStateId);
+    
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -107,9 +115,9 @@ const Homepage = () => {
 
     try {
       const { data } = await saveState({
-        variables: { input: stateInput }
+        variables: { input: holdStateId }
       });
-      console.log('save search', stateInput);
+      console.log('save search', holdStateId);
       console.log('save search data', data);
     
 
@@ -118,7 +126,9 @@ const Homepage = () => {
     }
 
     // if search successfuly saves to user's account, save state ID to state
-    setSavedStateIds([...savedStateIds, stateInput.stateId]);
+    setSavedStateIds([...savedStateIds, holdStateId]);
+   
+    setHoldStateId('')
     
   } catch (err) {
       console.error(err);
@@ -162,7 +172,7 @@ const Homepage = () => {
                     */}
                     {/* {JSON.stringify(searchedUsState)} */}
                     {Auth.loggedIn() && searchedUsState.length > 0 && (
-                      <Button>
+                      <Button onClick = {handleSaveState}>
                         Save    
                       </Button>
                     )}
