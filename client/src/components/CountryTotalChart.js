@@ -1,12 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Spinner } from 'react-bootstrap';
-import {
-  PieChart, Pie, Cell,
-} from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
 
-const COLORS = [
-  // '#0088FE', 
-'#ffc107', '#29a744', '#dc3644'];
+const COLORS = ['#ffc107', '#29a744', '#dc3644'];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -38,9 +34,6 @@ export default class CountryTotalChart extends PureComponent {
     .then((responseJson) => {
       this.setState({
         data: [
-          // {
-          //   name: 'Confirmed', value: responseJson[0].countryData[165].US.Summary.Confirmed
-          // },
           {
             name: 'Active', value: responseJson[0].countryData[165].US.Summary.Active
           },
@@ -51,42 +44,35 @@ export default class CountryTotalChart extends PureComponent {
             name: 'Deaths', value: responseJson[0].countryData[165].US.Summary.Deaths
           }
         ]
-        
-    
     })
     this.setState({ loaded: true })
-    // console.log("thisCountry", responseJson, this.state.data)
-
   })
-
 };
-
-   
 
   render() {
     if (this.state.loaded === false)
     return (
       <Spinner animation="border" variant="danger" role="status">
-      <span className="sr-only">Loading...</span>
+        <span className="sr-only">Loading...</span>
       </Spinner>)
     else 
-    return (
-      <PieChart width={350} height={350}>
-      <Pie
-        data={this.state.data}
-        cx={100}
-        cy={100}
-        labelLine={false}
-        label={renderCustomizedLabel}
-        outerRadius={100}
-        fill="#8884d8"
-        dataKey="value"
-      >
-        {
-          this.state.data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
-        }
-      </Pie>
-      </PieChart>
+      return (
+        <PieChart width={350} height={350}>
+          <Pie
+            data={this.state.data}
+            cx={100}
+            cy={100}
+            labelLine={false}
+            label={renderCustomizedLabel}
+            outerRadius={100}
+            fill="#8884d8"
+            dataKey="value"
+          >
+            {
+              this.state.data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+            }
+          </Pie>
+        </PieChart>
         );
       }
     }

@@ -3,7 +3,7 @@
 ![Github licence](http://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Description 
-This application demonstrates the MERN stack, using MongoDB & Mongoose (along with GraphQL/Apollo) for our database, Express & Node for our API and React as our front-end library. This application was designed with the current pandemic in mind. We wanted to create an application that was useful to it's users. This application will provide numbers of confirmed cases, active cases, recovered cases, and deaths tolls having to do with COVID-19. This application using an API providing numbers from John Hopkins University. This application is also a Progressive Web App - designed for mobile, uses service workers, is can be installed, and contained a web manifest. This project also uses JSON Web Tokens.
+This application demonstrates the MERN stack, using MongoDB & Mongoose (along with GraphQL/Apollo) for our database, Express & Node for our API and React as our front-end library. This application was designed with the current pandemic in mind. We wanted to create an application that was useful to it's users. This application will provide numbers of confirmed cases, active cases, recovered cases, and deaths tolls having to do with COVID-19. This application using an API providing numbers from John Hopkins University. This application is also a Progressive Web App - designed for mobile, uses service workers, can be installed, and contains a web manifest. This project also uses JSON Web Tokens.
 
 ## Table of Contents
 * [Installation](#installation)

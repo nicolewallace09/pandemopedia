@@ -27,7 +27,7 @@ module.exports = {
             fingerprints: false,
             inject: false,
             icons: [{
-                src: path.resolve("/Users/joshuaprice/Desktop/projects/pandemopedia/client/public/virus.svg"),
+                src: path.resolve("client/public/virus.svg"),
                 sizes: [96, 128, 192, 256, 384, 512],
                 destination: path.join("assets", "icons")
             }]

@@ -4,9 +4,6 @@ import Moment from 'react-moment';
 
 
 const StateCard = ({value}) => {
-   
-  console.log(value);
-  
   return (
     <>
     <div>
@@ -37,13 +34,9 @@ const StateCard = ({value}) => {
                 </div>
             </div>
             </Card>
-            
-        
-     
     </div>
     </>
-)
-
+  )
 }
 
 export default StateCard;

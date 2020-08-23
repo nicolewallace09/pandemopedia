@@ -1,23 +1,43 @@
+
 {
-  "name": "Pandemopedia",
   "short_name": "Pandemopedia",
-  "description": "An app that allows you to view Covid-19 data.",
-  "background_color": "#01579b",
-  "theme_color": "#ffffff",
-  "fingerprints": false,
-  "inject": false,
+  "name": "Pandemopedia",
+  "description": "An app that allows you to view Covid-19 data",
   "icons": [
     {
-      "sizes": [
-        96,
-        128,
-        192,
-        256,
-        384,
-        512
-      ],
-      "destination": path.join("assets",
-      "icons")
+      "src": "icons8-protection-mask-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "icons8-protection-mask-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "icons8-protection-mask-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "icons8-protection-mask-384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "icons8-protection-mask-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
-  ]
+ 
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }
+
+
+
+
+

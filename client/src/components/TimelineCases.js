@@ -1,27 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import {
-    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
-} from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 
 function Chart() {
     const [apiData, setApiData] = useState([]);
 
-    // comment
     useEffect(() => {
         componentDidMount()
-    }, []
-    )
-
+    }, [])
 
     async function componentDidMount() {
         const api = "https://api.covidtracking.com/v1/us/daily.json";
         const response = await fetch(api);
         const data = await response.json();
-        console.log(data)
 
-
-        // comment
         setApiData(
             [{
                 Positive: data[60].positiveIncrease,
@@ -149,23 +141,17 @@ function Chart() {
                 name: "Today",
                 Positive: data[0].positiveIncrease,
                 Deaths: data[0].deathIncrease,
-            }
-
-            ]
+            }]
         )
-
-
     }
 
     return (
 
         < div >
-            {/* comment */}
             {apiData ? (<LineChart
                 width={600}
                 height={300}
                 data={
-                    // comment
                     apiData
                 }
                 margin={{
@@ -182,8 +168,6 @@ function Chart() {
 
             </LineChart >) : null
             }
-
-
         </div >
     )
 }
