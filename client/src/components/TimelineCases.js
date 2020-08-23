@@ -18,7 +18,7 @@ function Chart() {
         const api = "https://api.covidtracking.com/v1/us/daily.json";
         const response = await fetch(api);
         const data = await response.json();
-        console.log(data)
+        //console.log(data)
 
 
         // comment

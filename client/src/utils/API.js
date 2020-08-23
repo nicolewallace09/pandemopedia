@@ -72,8 +72,8 @@ export const searchByState = (query) => {
 
 
 // api for state and city
-var apiUrlAllData4 = "https://corona.azure-api.net/country/us/:state/:city"
-var apiUrlAllData5 = "https://corona.azure-api.net/country/us/California/Los Angeles"
+//var apiUrlAllData4 = "https://corona.azure-api.net/country/us/:state/:city"
+//var apiUrlAllData5 = "https://corona.azure-api.net/country/us/California/Los Angeles"
 
 export const searchByCity = (query, cityQuery) => {
   console.log(query);

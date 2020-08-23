@@ -11,7 +11,7 @@ export default class CountryCard extends React.Component {
         const response = await fetch(api);
         const data = await response.json();
 
-        console.log(data)
+        //console.log(data)
         
         this.setState({ globalTime: data[0], loading: false});
 
