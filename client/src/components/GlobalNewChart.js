@@ -57,7 +57,7 @@ export default class GlobalNewChart extends PureComponent {
     
     })
     this.setState({ loaded: true })
-    console.log("Global", responseJson, this.state.data)
+    //console.log("Global", responseJson, this.state.data)
 
   })
 

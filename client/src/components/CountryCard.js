@@ -1,5 +1,5 @@
 import React from 'react'; 
-import Moment from 'react-moment';
+//import Moment from 'react-moment';
 import { Card, Spinner, Row, Col} from 'react-bootstrap';
 import CountryTotalChart from './CountryTotalChart';
 import CountryNewChart from './CountryNewChart';
@@ -15,7 +15,7 @@ export default class CountryCard extends React.Component {
         const response = await fetch(api);
         const data = await response.json();
 
-        console.log(data)
+        //console.log(data)
         
         this.setState({ us: data[0], loading: false});
     }

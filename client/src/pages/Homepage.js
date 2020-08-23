@@ -26,9 +26,10 @@ const Homepage = () => {
   let stateData = {};
 
   // create state to hold saved stateID values
-  const [savedStateIds, setSavedStateIds] = useState(getSavedStateIds()); // still need to define and pass in getSavedStateIds() to be consistent with BookSearch.js
+  const [savedStateIds, setSavedStateIds] = useState(getSavedStateIds()); 
 
-  const [saveState, { error }] = useMutation(SAVE_STATE);  // still need to define
+  // save the state info 
+  const [saveState, { error }] = useMutation(SAVE_STATE);  
 
   // set up useEffect hook to save 'saveStateIds' list to localStorage
   useEffect(() => {
@@ -76,6 +77,7 @@ const Homepage = () => {
       setSavedStateIds([...savedStateIds, stateData.stateId]);
       //setSearchInput(searchInput);
       setHoldStateId(stateData.stateId);
+      
       setSearchInput('');
       //setSearchedUsState(searchedUsState);
       setSearchedUsState([...searchedUsState, stateData]);
@@ -102,12 +104,17 @@ const Homepage = () => {
 
   // function to handle saving a state to the database
   const handleSaveState = async () => {
-    // find the state in `searchedUsStates` state by the matching id
-    console.log(savedStateIds)
+    
+    // find the state in `savedStateIds` state by the matching id
     const stateInput = savedStateIds.find((search) => search === holdStateId);
+    
+    console.log('list of saved state IDs', savedStateIds)
+    console.log('stateInput', stateInput);
+    console.log('holdStateId', holdStateId);
     
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
+    console.log('token', token);
 
     if (!token) {
       return false;
@@ -117,7 +124,7 @@ const Homepage = () => {
       const { data } = await saveState({
         variables: { input: holdStateId }
       });
-      console.log('save search', holdStateId);
+
       console.log('save search data', data);
     
 
