@@ -33,6 +33,7 @@ const typeDefs = gql`
     newDeaths: Int
     stateId: String
   }
+  
 
   type Query {
     me: User
@@ -41,7 +42,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveStateSearch(input: stateInput): User
+    saveStateSearch(stateId: String!): User
     removeStateSearch(stateId: String!): User
   }
 
@@ -54,3 +55,13 @@ module.exports = typeDefs;
 //saveStateSearch(input: stateInput): User
 
 //saveStateSearch(stateId: String!): User
+
+
+// input stateInput {
+//   name: String
+//   confirmed: Int
+//   newConfirmed: Int
+//   deaths: Int
+//   newDeaths: Int
+//   stateId: String
+// }

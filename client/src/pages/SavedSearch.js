@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
@@ -12,8 +12,69 @@ const SavedStateSearch = () => {
 
   const { loading, data } = useQuery(GET_ME); 
   const userData = data?.me || {};
+  console.log(userData);
+  console.log(userData.savedStateSearch)
+  console.log(userData.savedStateSearch.stateId[0])
+  //console.log(userData.savedStateSearch.length)
+  //useEffect(() => {
+    //console.log('user info', userData);
+    //console.log('one state id', userData.SavedStateSearch.stateId)
+    //});
 
-  // create function that accepts the book's mongo _id value as param and deletes the book from the database
+
+
+  
+    // const updateSearchData = async (userData) => {
+    //     event.preventDefault();
+    
+    //     if (!userData) {
+    //       return false;
+    //     }
+    
+    //     try {
+    //       const response = await searchByState(searchInput);
+    //       console.log(searchInput);
+    //       console.log(response);
+    
+    //       if (!response.ok) {
+    //         throw new Error('Something went wrong!');
+    //       }
+    
+    //       const data = await response.json();
+    //       console.log(data);
+    
+    
+    //       stateData = {
+    //         confirmed: data.Confirmed,
+    //         deaths: data.Deaths,
+    //         newConfirmed: data.NewConfirmed,
+    //         newDeaths: data.NewDeaths,
+    //         lastUpdate: data.Last_Update,
+    //         state: searchInput,
+    //         stateId: data.Slug_State
+    //       };
+          
+    //       setSavedStateIds([...savedStateIds, stateData.stateId]);
+    //       //setSearchInput(searchInput);
+    //       setHoldStateId(stateData.stateId);
+          
+    //       setSearchInput('');
+    //       //setSearchedUsState(searchedUsState);
+    //       setSearchedUsState([...searchedUsState, stateData]);
+    //       //setSearchedUsState(stateData);
+    //       // try using filter so that I can iterate through the data
+    //       } catch (err) {
+    //         console.error(err);
+    //       }
+          
+    //   };
+  
+  
+  
+  
+  
+  
+    // create function that accepts the states's ID value as param and deletes the state search from the database
   const handleDeleteStateSearch = async (stateId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -43,7 +104,7 @@ const SavedStateSearch = () => {
     return <h2>LOADING...</h2>;
   }
 
-  console.log('user credentials', userData);
+  //console.log('userData length', userData.savedStateSearch.length);
   //console.log(userData.savedStateSearch.length);
 
 
@@ -55,10 +116,10 @@ const SavedStateSearch = () => {
             <h1>Viewing saved searches!</h1>
         </Container>
         <Container>
-            <h2>
+            {/* <h2>
                 {userData.savedStateSearch.length ? `Viewing ${userData.savedStateSearch.length} saved ${userData.savedStateSearch.length === 1 ? 'search' : 'searches'}:`
                 : 'You have no saved searches!'}
-            </h2>
+            </h2> */}
         </Container>
      </>
    );

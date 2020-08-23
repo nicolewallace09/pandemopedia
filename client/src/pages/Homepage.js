@@ -106,10 +106,10 @@ const Homepage = () => {
   const handleSaveState = async () => {
     
     // find the state in `savedStateIds` state by the matching id
-    const stateInput = savedStateIds.find((search) => search === holdStateId);
+    const stateId = savedStateIds.find((search) => search === holdStateId);
     
     console.log('list of saved state IDs', savedStateIds)
-    console.log('stateInput', stateInput);
+    //console.log('stateInput', stateInput);
     console.log('holdStateId', holdStateId);
     
     // get token
@@ -122,7 +122,8 @@ const Homepage = () => {
 
     try {
       const { data } = await saveState({
-        variables: { input: holdStateId }
+        //variables: { input: holdStateId }
+        variables: { stateId: stateId}
       });
 
       console.log('save search data', data);

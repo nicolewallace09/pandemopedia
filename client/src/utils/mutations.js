@@ -32,43 +32,35 @@ export const ADD_USER = gql`
 
 
 // mutation to save U.S. state search
+export const SAVE_STATE = gql`
+  mutation saveStateSearch($stateId: String!) {
+    saveStateSearch(stateId: $stateId) {
+      _id
+      username
+      savedStateSearch {
+        stateId
+        
+        
+      }
+    }
+  }
+`;
+
+
+/************KEEPING COPY OF ORIGINAL CODE  *******/
+// mutation to save U.S. state search
 // export const SAVE_STATE = gql`
-//   mutation saveStateSearch($stateId: String!) {
-//     saveStateSearch(stateId: $stateId) {
+//   mutation saveStateSearch($input: stateInput!) {
+//     saveStateSearch(input: $input) {
 //       _id
 //       username
 //       savedStateSearch {
 //         stateId
-//         name
-//         confirmed
-//         newConfirmed
-//         deaths
-//         newDeaths
         
 //       }
 //     }
 //   }
 // `;
-
-
-/************KEEPING COPY OF ORIGINAL CODE  *******/
-//mutation to save U.S. state search
-export const SAVE_STATE = gql`
-  mutation saveStateSearch($input: stateInput!) {
-    saveStateSearch(input: $input) {
-      _id
-      username
-      savedStateSearch {
-        stateId
-        name
-        confirmed
-        newConfirmed
-        deaths
-        newDeaths
-      }
-    }
-  }
-`;
 
 
 

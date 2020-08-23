@@ -44,11 +44,11 @@ const resolvers = {
     
     
     //////////// REMOVING INPUT - DID NOT WORK ////
-    // saveStateSearch: async (parent, { input }, context) => {
+    // saveStateSearch: async (parent, args, context) => {
     //   if (context.user) {
     //     const updatedUser = await User.findByIdAndUpdate(
     //       { _id: context.user._id },
-    //       { $addToSet: { savedStateSearch: { stateId: args.stateId } } },
+    //       { $addToSet: { savedStateSearch: { stateId: args.stateInput.stateId } } },
     //       { new: true }
     //     );
     //     return updatedUser;
@@ -57,11 +57,11 @@ const resolvers = {
     // },
 
     
-    saveStateSearch: async (parent, { input }, context) => {
+    saveStateSearch: async (parent, args, context) => {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
         { _id: context.user._id },
-        { $addToSet: { savedStateSearch: input } },
+        { $addToSet: { savedStateSearch: { stateId: args.stateId } } },
         { new: true }
       );
       return updatedUser;
