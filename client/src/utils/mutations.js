@@ -1,5 +1,6 @@
 // page for mutations 
 import gql from 'graphql-tag';
+import { toNamespacedPath } from 'path';
 
 // mutation for logged in user
 export const LOGIN_USER = gql`
@@ -45,6 +46,7 @@ export const ADD_USER = gql`
 //         deaths
 //         newDeaths
         
+        
 //       }
 //     }
 //   }
@@ -52,33 +54,41 @@ export const ADD_USER = gql`
 
 
 /************KEEPING COPY OF ORIGINAL CODE  *******/
-//mutation to save U.S. state search
+// mutation to save U.S. state search
 export const SAVE_STATE = gql`
-  mutation saveStateSearch($input: stateInput!) {
-    saveStateSearch(input: $input) {
-      _id
-      username
-      savedStateSearch {
-        stateId
-        name
-        confirmed
-        newConfirmed
-        deaths
-        newDeaths
-      }
+mutation saveStateSearch($input: stateInput!) {
+     saveStateSearch(input: $input) {
+       _id
+       username
+       savedStateSearch {
+         stateId
+         name
+         confirmed
+         newConfirmed
+         deaths
+         newDeaths
+           
+        
+       }     
     }
-  }
-`;
+   }
+ `;
 
 
 
 // mutation to remove U.S. state search
 export const REMOVE_STATE_SEARCH = gql`
-    mutation removeStateSearch($stateId: ID!) {
+    mutation removeStateSearch($stateId: String!) {
         removeStateSearch(stateId: $stateId) {
-            token
-                state {
-                    _id
+            _id
+            username
+                savedStateSearch {
+                    stateId
+                    name
+                    confirmed
+                    newConfirmed
+                    deaths
+                    newDeaths
                 }
         }
     }
