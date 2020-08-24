@@ -62,11 +62,11 @@ mutation saveStateSearch($input: stateInput!) {
        username
        savedStateSearch {
          stateId
-            name
-              confirmed
-                newConfirmed
-                deaths
-                newDeaths
+         name
+         confirmed
+         newConfirmed
+         deaths
+         newDeaths
            
         
        }     
@@ -78,11 +78,17 @@ mutation saveStateSearch($input: stateInput!) {
 
 // mutation to remove U.S. state search
 export const REMOVE_STATE_SEARCH = gql`
-    mutation removeStateSearch($stateId: ID!) {
+    mutation removeStateSearch($stateId: String!) {
         removeStateSearch(stateId: $stateId) {
-            token
-                state {
-                    _id
+            _id
+            username
+                savedStateSearch {
+                    stateId
+                    name
+                    confirmed
+                    newConfirmed
+                    deaths
+                    newDeaths
                 }
 
         }

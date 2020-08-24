@@ -11,7 +11,7 @@ import gql from 'graphql-tag';
 import Moment from 'react-moment';
 
 const SavedStateSearch = () => {
-  const client = useApolloClient()
+  //const client = useApolloClient()
  
   const [removeStateSearch, { error }] = useMutation(REMOVE_STATE_SEARCH);
   //const [savedData, setSavedData] = useState([])
@@ -128,6 +128,8 @@ const SavedStateSearch = () => {
   const handleDeleteStateSearch = async (stateId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
+    console.log(stateId)
+
     if (!token) {
       return false;
     }
@@ -191,9 +193,10 @@ const SavedStateSearch = () => {
                     <p className="badge badge-danger">Deaths: </p> {search.newDeaths.toLocaleString()}
                     <br></br>
                     <br></br>
+                    <Button className='btn-block btn-danger' size='md' onClick={() => handleDeleteStateSearch(search.stateId)}>Delete this Search!</Button>
                     </Col>
                     Last Updated: <Moment format="MMMM Do, YYYY hh:mm a">{search.lastUpdate}</Moment>
-                    <Button className='btn-block btn-danger' onClick={() => handleDeleteStateSearch(search.searchId)}>Delete his Search!</Button>
+                    
                     </Row>
                     )})}
                 </div>
