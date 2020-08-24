@@ -4,13 +4,11 @@ var urlsToCache = [
   '/index.html',
   '/idb.js',
   '/manifest.json',
-  '../src/index.js',
-  '../src/index.css',
-  '/icons8-protection-mask-96.png',
-  '/icons8-protection-mask-128.png',
-  '/icons8-protection-mask-256.png',
-  '/icons8-protection-mask-384.png',
-  '/icons8-protection-mask-512.png'
+  '/icons/icons8-protection-mask-96.png',
+  '/icons/icons8-protection-mask-128.png',
+  '/icons/icons8-protection-mask-256.png',
+  '/icons/icons8-protection-mask-384.png',
+  '/icons/icons8-protection-mask-512.png'
 ];
 
 // Install a service worker

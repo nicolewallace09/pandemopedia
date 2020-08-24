@@ -144,23 +144,23 @@ const Homepage = () => {
       
     return (
         <>
-        <Jumbotron fluid className='text-light bg-danger' style={{ height: 560, clear: "both", paddingTop: 200, paddingLeft: 200}}>
+        <Jumbotron className='text-light bg-danger' style={{ width: '100%', height: 560, paddingTop: 200, paddingLeft: 100}}>
           <Container>
             <h5>Search for your state</h5>
             < Form onSubmit={handleFormSubmit}>
               <Form.Row>
-                <Col xs={12} md={8}>
+                <Col xs={8} md={8}>
                   <Form.Control
                     name='searchInput'
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
                     type='text'
                     size='md'
-                    placeholder='Please enter a state'
+                    placeholder='Enter a state'
                   />
-                  < i className="app-claim">* This application is intended for US states only</i>
+                  <i className="app-claim">* This application is intended for US states only</i>
                 </Col>
-                <Col xs={12} md={4}>
+                <Col xs={4} md={4}>
                   <Button type='submit' variant='danger' size='md'>
                     Search
                   </Button>
@@ -174,9 +174,6 @@ const Homepage = () => {
             <Row>
                 <Col sm={12} md={12}>
                     { searchedUsState.length > 0 ? <StateCard value = {searchedUsState[0]}  /> : null }
-                    {/* { searchedUsState.length > 0 ? <StateCard region = {searchInput} /> : null }
-                    */}
-                    {/* {JSON.stringify(searchedUsState)} */}
                     {Auth.loggedIn() && searchedUsState.length > 0 && (
                       <Button onClick = {handleSaveState}>
                         Save    
@@ -184,25 +181,20 @@ const Homepage = () => {
                     )}
                     
                 </Col>
-                <Col sm="12" md={{ size: 12, offset: 0.1 }}>
-                    {/* CityCard will go here */}
-                    
-                </Col>
             </Row>
         </Container> 
 
         <Container>
-          {/* <h1 className="header text-center">COVID-19 Tracker</h1> */}
-          <center><img src="https://www.knightdesign.com.au/wp-content/uploads/2020/03/COVID-19.png" alt="covid-logo" style={{ height: 300 }}></img></center>
+          <center><img src="https://www.knightdesign.com.au/wp-content/uploads/2020/03/COVID-19.png" alt="covid-logo" style={{ height: 300, width: 650 }}></img></center>
         </Container>
 
         <Container fluid>
             <Row>
-                <Col sm="12" md="6">
+                <Col sm="12" md="12" lg="6">
                     <GlobalCard/>
                 </Col>
 
-                <Col sm="12" md="6">
+                <Col sm="12" md="12" lg="6">
                   <CountryCard />
                 </Col>
            </Row>
@@ -211,11 +203,12 @@ const Homepage = () => {
       <Container fluid className="time-series">
       <h1 className="time-header text-center">US Time Series (60 Day Trend)</h1><br></br>
             <Row style={{paddingLeft: 25, paddingBottom: 100}}>
-              <Col sm="12" md="6">
+              <Col sm="12" md="12" lg="6">
                 <TimelineCases/>
               </Col>
+              
 
-              <Col sm="12" md="6">
+              <Col sm="12" md="12" lg="6">
                 <TimelineDeaths/>
               </Col>
             </Row>
