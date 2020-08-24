@@ -28,4 +28,3 @@ export const removeStateId = (stateId) => {
 
   return true;
 };
-

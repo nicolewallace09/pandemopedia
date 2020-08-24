@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Form, Col, Button, Row } from 'react-bootstrap';
-// import Example from '../components/Charts'
 import GlobalCard from '../components/GlobalCard';
 import CountryCard from '../components/CountryCard';
 import StateCard from '../components/StateCard';
@@ -213,7 +212,7 @@ const Homepage = () => {
       </Container>
 
       <Container fluid className="time-series">
-      <h1 className="time-header text-center">US Time Series (30 Day Trend)</h1><br></br>
+      <h1 className="time-header text-center">US Time Series (60 Day Trend)</h1><br></br>
             <Row style={{paddingLeft: 25, paddingBottom: 100}}>
               <Col sm="12" md="6">
                 <TimelineCases/>
@@ -236,4 +235,4 @@ const Homepage = () => {
     );
 };
 
-export default Homepage; 
+export default Homepage;

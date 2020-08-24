@@ -1,5 +1,5 @@
 {
-  "name": "project3",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
@@ -19,7 +19,7 @@
     "react-dom": "^16.13.1",
     "react-moment": "^0.9.7",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "3.4.3",
     "recharts": "^1.8.5"
   },
   "scripts": {

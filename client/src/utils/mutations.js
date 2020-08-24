@@ -90,7 +90,6 @@ export const REMOVE_STATE_SEARCH = gql`
                     deaths
                     newDeaths
                 }
-
         }
     }
 `;

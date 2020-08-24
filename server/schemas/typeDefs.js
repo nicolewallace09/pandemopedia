@@ -10,7 +10,6 @@ const typeDefs = gql`
     stateCount: Int
     savedStateSearch: [State]
   }
-
   type State {
     name: String
     confirmed: Int
@@ -19,12 +18,10 @@ const typeDefs = gql`
     newDeaths: Int
     stateId: String 
 }
-
   type Auth {
     token: ID
     user: User
   }
-
   input stateInput {
     name: String
     confirmed: Int
@@ -36,18 +33,15 @@ const typeDefs = gql`
     
   }
   
-
   type Query {
     me: User
   }
-
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveStateSearch(input: stateInput): User
     removeStateSearch(stateId: String!): User
   }
-
   `;
 
 // export the typeDef

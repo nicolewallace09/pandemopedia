@@ -1,30 +1,83 @@
 import React, { useState, useEffect } from 'react';
-import {
-    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
-} from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 
 function Chart() {
     const [apiData, setApiData] = useState([]);
 
-    // comment
     useEffect(() => {
         componentDidMount()
-    }, []
-    )
-
+    }, [])
 
     async function componentDidMount() {
         const api = "https://api.covidtracking.com/v1/us/daily.json";
         const response = await fetch(api);
         const data = await response.json();
-        //console.log(data)
 
-
-        // comment
         setApiData(
             [{
-                name: data[30].date,
+                Positive: data[60].positiveIncrease,
+            }, {
+                Positive: data[59].positiveIncrease,
+            }, {
+                Positive: data[58].positiveIncrease,
+            }, {
+                Positive: data[57].positiveIncrease,
+            }, {
+                Positive: data[56].positiveIncrease,
+            }, {
+                Positive: data[55].positiveIncrease,
+            }, {
+                Positive: data[54].positiveIncrease,
+            }, {
+                Positive: data[53].positiveIncrease,
+            }, {
+                Positive: data[52].positiveIncrease,
+            }, {
+                Positive: data[51].positiveIncrease,
+            }, {
+                Positive: data[50].positiveIncrease,
+            }, {
+                Positive: data[49].positiveIncrease,
+            }, {
+                Positive: data[48].positiveIncrease,
+            }, {
+                Positive: data[47].positiveIncrease,
+            }, {
+                Positive: data[46].positiveIncrease,
+            }, {
+                Positive: data[45].positiveIncrease,
+            }, {
+                Positive: data[44].positiveIncrease,
+            }, {
+                Positive: data[43].positiveIncrease,
+            }, {
+                Positive: data[42].positiveIncrease,
+            }, {
+                Positive: data[41].positiveIncrease,
+            }, {
+                Positive: data[40].positiveIncrease,
+            }, {
+                Positive: data[39].positiveIncrease,
+            }, {
+                Positive: data[30].positiveIncrease,
+            }, {
+                Positive: data[38].positiveIncrease,
+            }, {
+                Positive: data[37].positiveIncrease,
+            }, {
+                Positive: data[36].positiveIncrease,
+            }, {
+                Positive: data[35].positiveIncrease,
+            }, {
+                Positive: data[34].positiveIncrease,
+            }, {
+                Positive: data[33].positiveIncrease,
+            }, {
+                Positive: data[32].positiveIncrease,
+            }, {
+                Positive: data[31].positiveIncrease,
+            }, {
                 Positive: data[30].positiveIncrease,
             }, {
                 Positive: data[29].positiveIncrease,
@@ -88,23 +141,17 @@ function Chart() {
                 name: "Today",
                 Positive: data[0].positiveIncrease,
                 Deaths: data[0].deathIncrease,
-            }
-
-            ]
+            }]
         )
-
-
     }
 
     return (
 
         < div >
-            {/* comment */}
             {apiData ? (<LineChart
                 width={600}
                 height={300}
                 data={
-                    // comment
                     apiData
                 }
                 margin={{
@@ -121,8 +168,6 @@ function Chart() {
 
             </LineChart >) : null
             }
-
-
         </div >
     )
 }

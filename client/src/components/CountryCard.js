@@ -1,5 +1,4 @@
 import React from 'react'; 
-//import Moment from 'react-moment';
 import { Card, Spinner, Row, Col} from 'react-bootstrap';
 import CountryTotalChart from './CountryTotalChart';
 import CountryNewChart from './CountryNewChart';
@@ -14,8 +13,6 @@ export default class CountryCard extends React.Component {
         const api = "https://corona.azure-api.net/all";
         const response = await fetch(api);
         const data = await response.json();
-
-        //console.log(data)
         
         this.setState({ us: data[0], loading: false});
     }
@@ -60,18 +57,12 @@ export default class CountryCard extends React.Component {
                         <CountryNewChart/>
                         </Col>
                         </Row>
-                        <br></br>
-                        <br></br>
-                        {/* <i>Last Updated: <Moment format="MMMM Do YYYY hh:mm a">{this.state.us.countryData[165].US.Summary.Last_Update}</Moment></i> */}
                     </div>
                 </div>
-                </Card>
-                
-            
+                </Card> 
             )}
         </div>
         </>
     )
-
 }
 }
