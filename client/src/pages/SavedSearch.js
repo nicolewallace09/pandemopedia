@@ -161,7 +161,7 @@ const SavedStateSearch = () => {
      <>
         <Container fluid>
             <h2>{userData.savedStateSearch && userData.savedStateSearch.length ? `${userData.username} has ${userData.savedStateSearch.length} saved ${userData.savedStateSearch.length === 1 ? 'search' : 'searches'}`
-                : 'You have no saved searches!'}
+                : `${userData.username} has no saved searches!`}
             </h2>
         </Container>
         <div>
