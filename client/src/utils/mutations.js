@@ -1,8 +1,8 @@
 // page for mutations 
 import gql from 'graphql-tag';
-import { toNamespacedPath } from 'path';
 
-// mutation for logged in user
+
+// mutation to login a user
 export const LOGIN_USER = gql`
     mutation loginUser($email: String!, $password: String!) {
         login(email: $email, password: $password) {
@@ -11,9 +11,9 @@ export const LOGIN_USER = gql`
                 _id
                 username
                 email
-         }
-       }
-     }
+        }
+    }
+}
 `;
 
 // mutation to add user 
@@ -31,65 +31,39 @@ export const ADD_USER = gql`
 `;
 
 
-
-// mutation to save U.S. state search
-// export const SAVE_STATE = gql`
-//   mutation saveStateSearch($stateId: String!) {
-//     saveStateSearch(stateId: $stateId) {
-//       _id
-//       username
-//       savedStateSearch {
-//         stateId
-//         name
-//         confirmed
-//         newConfirmed
-//         deaths
-//         newDeaths
-        
-        
-//       }
-//     }
-//   }
-// `;
-
-
-/************KEEPING COPY OF ORIGINAL CODE  *******/
 // mutation to save U.S. state search
 export const SAVE_STATE = gql`
 mutation saveStateSearch($input: stateInput!) {
-     saveStateSearch(input: $input) {
-       _id
-       username
-       savedStateSearch {
-         stateId
-         name
-         confirmed
-         newConfirmed
-         deaths
-         newDeaths
-           
-        
-       }     
+    saveStateSearch(input: $input) {
+        _id
+        username
+        savedStateSearch {
+            stateId
+            name
+            confirmed
+            newConfirmed
+            deaths
+            newDeaths                   
+        }     
     }
-   }
- `;
-
+}
+`;
 
 
 // mutation to remove U.S. state search
 export const REMOVE_STATE_SEARCH = gql`
-    mutation removeStateSearch($stateId: String!) {
-        removeStateSearch(stateId: $stateId) {
-            _id
-            username
-                savedStateSearch {
-                    stateId
-                    name
-                    confirmed
-                    newConfirmed
-                    deaths
-                    newDeaths
-                }
+mutation removeStateSearch($stateId: String!) {
+    removeStateSearch(stateId: $stateId) {
+        _id
+        username
+        savedStateSearch {
+            stateId
+            name
+            confirmed
+            newConfirmed
+            deaths
+            newDeaths
         }
     }
+}
 `;

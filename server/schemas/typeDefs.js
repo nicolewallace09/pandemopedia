@@ -44,20 +44,5 @@ const typeDefs = gql`
   }
   `;
 
-// export the typeDef
+
 module.exports = typeDefs; 
-
-// This is the original code, but receive an error because I am passing a string instead of an object
-//saveStateSearch(input: stateInput): User
-
-//saveStateSearch(stateId: String!): User
-
-
-// input stateInput {
-//   name: String
-//   confirmed: Int
-//   newConfirmed: Int
-//   deaths: Int
-//   newDeaths: Int
-//   stateId: String
-// }
