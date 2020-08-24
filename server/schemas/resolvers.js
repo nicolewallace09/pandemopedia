@@ -43,7 +43,7 @@ const resolvers = {
     },
     
     
-    //////////// REMOVING INPUT - DID NOT WORK ////
+    // save a state search to the db
     saveStateSearch: async (parent, { input }, context) => {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
@@ -55,22 +55,8 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!')
     },
-
     
-//     saveStateSearch: async (parent, args, context) => {
-//       if (context.user) {
-//         const updatedUser = await User.findByIdAndUpdate(
-//         { _id: context.user._id },
-//         { $addToSet: { savedStateSearch: { stateId: args.stateId } } },
-//         { new: true }
-//       );
-//       return updatedUser;
-//     }
-//     throw new AuthenticationError('You need to be logged in!')
-// },
-    
-    
-    
+    // remove a search from the db
     removeStateSearch: async (parent, args, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
@@ -86,17 +72,3 @@ const resolvers = {
 };
 
 module.exports = resolvers;
-
-
-//////////// ORIGINAL CODE /////////
-// saveStateSearch: async (parent, { input }, context) => {
-//   if (context.user) {
-//     const updatedUser = await User.findByIdAndUpdate(
-//       { _id: context.user._id },
-//       { $addToSet: { savedStateSearch: input } },
-//       { new: true }
-//     );
-//     return updatedUser;
-//   }
-//   throw new AuthenticationError('You need to be logged in!')
-// },

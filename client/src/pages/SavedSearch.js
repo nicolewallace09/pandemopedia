@@ -1,162 +1,55 @@
-import React, { useEffect, useState } from 'react';
-import { Jumbotron, Container, CardColumns, Card, Button, Row, Col } from 'react-bootstrap';
-
+import React from 'react';
+import { Container, Card, Button, Row, Col } from 'react-bootstrap';
 import Auth from '../utils/auth';
 import { removeStateId } from '../utils/localStorage'; 
-import { useQuery, useMutation } from '@apollo/react-hooks'; // verify we have react-hooks npm
-import { useApolloClient } from '@apollo/client';
-import { GET_ME } from '../utils/queries'; // need to define
-import { REMOVE_STATE_SEARCH } from '../utils/mutations'; // need to build
-import gql from 'graphql-tag';
+import { useQuery, useMutation } from '@apollo/react-hooks'; 
+import { GET_ME } from '../utils/queries';
+import { REMOVE_STATE_SEARCH } from '../utils/mutations';
 import Moment from 'react-moment';
 
 const SavedStateSearch = () => {
-  //const client = useApolloClient()
- 
-  const [removeStateSearch, { error }] = useMutation(REMOVE_STATE_SEARCH);
-  //const [savedData, setSavedData] = useState([])
-  const { loading, data } = useQuery(GET_ME); 
-  //const loading = null;
-  //const data  = null;
-  const userData = data?.me || {};
   
-
-  console.log(userData);
-  //console.log(userData.savedStateSearch);
-  //console.log(userData.savedStateSearch[0].stateId);
+    // mutation to remove a search
+    const [removeStateSearch, { error }] = useMutation(REMOVE_STATE_SEARCH);
   
-//   console.log ('stateId', userData.savedStateSearch && userData.savedStateSearch[3].stateId)
-//   console.log ('name', userData.savedStateSearch && userData.savedStateSearch[3].name)
-//   console.log ('confimred', userData.savedStateSearch && userData.savedStateSearch[3].confirmed)
-//   console.log ('newConfirmed', userData.savedStateSearch && userData.savedStateSearch[3].newConfirmed)
-//   console.log ('deaths', userData.savedStateSearch && userData.savedStateSearch[3].deaths)
-//   console.log ('newDeaths', userData.savedStateSearch && userData.savedStateSearch[3].newDeaths)
-
+    // query the user data, which contains saved searches
+    const { loading, data } = useQuery(GET_ME); 
   
-  
-  
-//   async function refreshData() {
-//     console.log(await client.query({ query: gql `{
-//     me {
-//       _id
-//       username
-//       email
-//       stateCount
-//       savedStateSearch {
-//         name
-//         confirmed
-//         newConfirmed
-//         deaths
-//         newDeaths
-//         stateId
-//       }
-//     }
-//   }`}))
-//     //setSavedData(['hello'])
-//     //console.log(savedData);
-//     userData.savedStateSearch = []
-//   }
-//    useEffect(( ) => {
-//        refreshData()
-//    })
-  
-
-  
-//   useEffect(() => {
-//     if (!userData && !userData.savedStateSearch) {
-//         console.log(userData.savedStateSearch[0].stateId)
-//         console.log(userData.savedStateSearch[1].stateId)
-//     }
-//     });
-
-    // useEffect(() => {
-    //     return () => console.log(userData.savedStateSearch.stateId);
-    //     });
-
-  
-    // const updateSearchData = async (userData) => {
-    //     event.preventDefault();
-    
-    //     if (!userData) {
-    //       return false;
-    //     }
-    
-    //     try {
-    //       const response = await searchByState(searchInput);
-    //       console.log(searchInput);
-    //       console.log(response);
-    
-    //       if (!response.ok) {
-    //         throw new Error('Something went wrong!');
-    //       }
-    
-    //       const data = await response.json();
-    //       console.log(data);
-    
-    
-    //       stateData = {
-    //         confirmed: data.Confirmed,
-    //         deaths: data.Deaths,
-    //         newConfirmed: data.NewConfirmed,
-    //         newDeaths: data.NewDeaths,
-    //         lastUpdate: data.Last_Update,
-    //         state: searchInput,
-    //         stateId: data.Slug_State
-    //       };
-          
-    //       setSavedStateIds([...savedStateIds, stateData.stateId]);
-    //       //setSearchInput(searchInput);
-    //       setHoldStateId(stateData.stateId);
-          
-    //       setSearchInput('');
-    //       //setSearchedUsState(searchedUsState);
-    //       setSearchedUsState([...searchedUsState, stateData]);
-    //       //setSearchedUsState(stateData);
-    //       // try using filter so that I can iterate through the data
-    //       } catch (err) {
-    //         console.error(err);
-    //       }
-          
-    //   };
-  
-  
-  
-  
+    // userData is provided by the database or is an empty object
+    const userData = data?.me || {};
   
   
     // create function that accepts the states's ID value as param and deletes the state search from the database
-  const handleDeleteStateSearch = async (stateId) => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    const handleDeleteStateSearch = async (stateId) => {
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-    console.log(stateId)
-
-    if (!token) {
-      return false;
-    }
-
-    try {
-      const { data } = await removeStateSearch({
-        variables: { stateId }
-      });
-      console.log(data);
-
-      if (error) {
-        throw new Error('something went wrong!');
+      if (!token) {
+          return false;
       }
 
-      // upon success, remove book's id from localStorage
+      try {
+          const { data } = await removeStateSearch({
+              variables: { stateId }
+      })
+     
+      if (error) {
+          throw new Error('something went wrong!');
+      }
+
+      // upon success, remove state's id from localStorage
       removeStateId(stateId);
-    } catch (err) {
-      console.error(err);
+    
+      } catch (err) {
+          console.error(err);
+      }
+    };
+
+    // if data isn't here yet, say so
+    if (loading) {
+        return <h2>LOADING...</h2>;
     }
-  };
 
-  // if data isn't here yet, say so
-  if (loading) {
-    return <h2>LOADING...</h2>;
-  }
-
-  
+    console.log('returned data', userData);
    return (
      <>
         <Container fluid>
@@ -172,7 +65,7 @@ const SavedStateSearch = () => {
                     <br></br>
                     {userData.savedStateSearch.map((search) => {
                         return (
-                    <Row>   
+                    <Row key={search.stateId}>   
                     <Col xs={9} md={6}>
                     <h4 className="text-center">{search.name.toUpperCase()} TOTAL CASES</h4> 
                     <h3 className="text-primary text-center">{search.confirmed.toLocaleString()}</h3>

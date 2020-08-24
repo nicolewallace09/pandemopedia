@@ -7,8 +7,8 @@ const StateCard = ({value}) => {
   return (
     <>
     <div>
-            <Card border="black" className="homepage-card" style={{ paddingTop: 10, paddingLeft: 10, paddingBottom: 10}}>
-             <div>
+        <Card border="black" className="homepage-card" style={{ paddingTop: 10, paddingLeft: 10, paddingBottom: 10}}>
+            <div>
                 <div>
                     <h1>Your Search Results:</h1>
                     <br></br>

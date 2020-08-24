@@ -5,6 +5,7 @@ export const searchByState = (query) => {
   
 };
 
+// searcg fir covid data by city (not being used at this time)
 export const searchByCity = (query, cityQuery) => {
   console.log(query);
   console.log(cityQuery);
