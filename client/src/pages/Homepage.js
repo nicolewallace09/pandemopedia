@@ -70,7 +70,7 @@ const Homepage = () => {
         newConfirmed: data.NewConfirmed,
         newDeaths: data.NewDeaths,
         lastUpdate: data.Last_Update,
-        state: searchInput,
+        name: searchInput,
         stateId: data.Slug_State
       };
       
@@ -115,7 +115,7 @@ const Homepage = () => {
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     console.log('token', token);
-
+    console.log(searchedUsState);
     if (!token) {
       return false;
     }
@@ -123,7 +123,9 @@ const Homepage = () => {
     try {
       const { data } = await saveState({
         //variables: { input: holdStateId }
-        variables: { stateId: stateId}
+        variables: { input: searchedUsState[0]}
+                   
+      
       });
 
       console.log('save search data', data);

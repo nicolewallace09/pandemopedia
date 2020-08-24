@@ -17,7 +17,7 @@ const StateCard = ({value}) => {
                     <br></br>
                     <Row>
                     <Col xs={9} md={6}>
-                    <h4 className="text-center">{value.state.toUpperCase()} TOTAL CASES</h4> 
+                    <h4 className="text-center">{value.name.toUpperCase()} TOTAL CASES</h4> 
                     <h3 className="text-primary text-center">{value.confirmed.toLocaleString()}</h3>
                     <br></br>
                     <p className="badge badge-danger">Deaths:</p> {value.deaths.toLocaleString()}
@@ -25,7 +25,7 @@ const StateCard = ({value}) => {
                     </Col>
                 
                     <Col xs={9} md={6}>
-                    <h4 className="text-center">{value.state.toUpperCase()} NEW CASES</h4>
+                    <h4 className="text-center">{value.name.toUpperCase()} NEW CASES</h4>
                     <h3 className="text-primary text-center">{value.newConfirmed.toLocaleString()}</h3>
                     <br></br>
                     <p className="badge badge-danger">Deaths: </p> {value.newDeaths.toLocaleString()}
