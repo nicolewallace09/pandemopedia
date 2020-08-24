@@ -159,21 +159,16 @@ const SavedStateSearch = () => {
   
    return (
      <>
-        <Container>
-            <h1>Viewing saved searches!</h1>
-        </Container>
-        <Container>
-            <h2>
-                {userData.savedStateSearch && userData.savedStateSearch.length ? `Viewing ${userData.savedStateSearch.length} saved ${userData.savedStateSearch.length === 1 ? 'search' : 'searches'}:`
+        <Container fluid>
+            <h2>{userData.savedStateSearch && userData.savedStateSearch.length ? `${userData.username} has ${userData.savedStateSearch.length} saved ${userData.savedStateSearch.length === 1 ? 'search' : 'searches'}`
                 : 'You have no saved searches!'}
             </h2>
-            
         </Container>
         <div>
-            <Card border="black" className="homepage-card" style={{ paddingTop: 10, paddingLeft: 10, paddingBottom: 10}}>
+            <Card border="white" className="homepage-card" style={{ paddingTop: 10, paddingLeft: 10, paddingBottom: 10}}>
              <div>
                 <div>
-                    <h1>Your Saved Search Results:</h1>
+                    <h1 className="text-center">Your Saved Searches:</h1>
                     <br></br>
                     {userData.savedStateSearch.map((search) => {
                         return (
@@ -191,12 +186,14 @@ const SavedStateSearch = () => {
                     <h3 className="text-primary text-center">{search.newConfirmed.toLocaleString()}</h3>
                     <br></br>
                     <p className="badge badge-danger">Deaths: </p> {search.newDeaths.toLocaleString()}
-                    <br></br>
-                    <br></br>
-                    <Button className='btn-block btn-danger' size='md' onClick={() => handleDeleteStateSearch(search.stateId)}>Delete this Search!</Button>
                     </Col>
+                    <Col md={6}>
                     Last Updated: <Moment format="MMMM Do, YYYY hh:mm a">{search.lastUpdate}</Moment>
-                    
+                    </Col>
+
+                    <Col md={6}>
+                    <Button type='submit' variant='danger' size='md' style={{ justifyContent: 'flex-end'}} onClick={() => handleDeleteStateSearch(search.stateId)}>Delete this search</Button>
+                    </Col>
                     </Row>
                     )})}
                 </div>
