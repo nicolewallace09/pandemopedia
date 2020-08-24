@@ -29,7 +29,10 @@ const typeDefs = gql`
     deaths: Int
     newDeaths: Int
     stateId: String
+    lastUpdate: String
+    
   }
+  
   type Query {
     me: User
   }
@@ -48,3 +51,13 @@ module.exports = typeDefs;
 //saveStateSearch(input: stateInput): User
 
 //saveStateSearch(stateId: String!): User
+
+
+// input stateInput {
+//   name: String
+//   confirmed: Int
+//   newConfirmed: Int
+//   deaths: Int
+//   newDeaths: Int
+//   stateId: String
+// }

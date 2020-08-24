@@ -69,7 +69,7 @@ const Homepage = () => {
         newConfirmed: data.NewConfirmed,
         newDeaths: data.NewDeaths,
         lastUpdate: data.Last_Update,
-        state: searchInput,
+        name: searchInput,
         stateId: data.Slug_State
       };
       
@@ -105,23 +105,26 @@ const Homepage = () => {
   const handleSaveState = async () => {
     
     // find the state in `savedStateIds` state by the matching id
-    const stateInput = savedStateIds.find((search) => search === holdStateId);
+    const stateId = savedStateIds.find((search) => search === holdStateId);
     
     console.log('list of saved state IDs', savedStateIds)
-    console.log('stateInput', stateInput);
+    //console.log('stateInput', stateInput);
     console.log('holdStateId', holdStateId);
     
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     console.log('token', token);
-
+    console.log(searchedUsState);
     if (!token) {
       return false;
     }
 
     try {
       const { data } = await saveState({
-        variables: { input: holdStateId }
+        //variables: { input: holdStateId }
+        variables: { input: searchedUsState[0]}
+                   
+      
       });
 
       console.log('save search data', data);
