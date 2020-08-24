@@ -25,12 +25,12 @@ const SavedStateSearch = () => {
   //console.log(userData.savedStateSearch);
   //console.log(userData.savedStateSearch[0].stateId);
   
-  console.log ('stateId', userData.savedStateSearch && userData.savedStateSearch[3].stateId)
-  console.log ('name', userData.savedStateSearch && userData.savedStateSearch[3].name)
-  console.log ('confimred', userData.savedStateSearch && userData.savedStateSearch[3].confirmed)
-  console.log ('newConfirmed', userData.savedStateSearch && userData.savedStateSearch[3].newConfirmed)
-  console.log ('deaths', userData.savedStateSearch && userData.savedStateSearch[3].deaths)
-  console.log ('newDeaths', userData.savedStateSearch && userData.savedStateSearch[3].newDeaths)
+//   console.log ('stateId', userData.savedStateSearch && userData.savedStateSearch[3].stateId)
+//   console.log ('name', userData.savedStateSearch && userData.savedStateSearch[3].name)
+//   console.log ('confimred', userData.savedStateSearch && userData.savedStateSearch[3].confirmed)
+//   console.log ('newConfirmed', userData.savedStateSearch && userData.savedStateSearch[3].newConfirmed)
+//   console.log ('deaths', userData.savedStateSearch && userData.savedStateSearch[3].deaths)
+//   console.log ('newDeaths', userData.savedStateSearch && userData.savedStateSearch[3].newDeaths)
 
   
   
@@ -171,32 +171,33 @@ const SavedStateSearch = () => {
             <Card border="black" className="homepage-card" style={{ paddingTop: 10, paddingLeft: 10, paddingBottom: 10}}>
              <div>
                 <div>
-                    <h1>Your Search Results:</h1>
+                    <h1>Your Saved Search Results:</h1>
                     <br></br>
+                    {userData.savedStateSearch.map((search) => {
+                        return (
                     <Row>   
                     <Col xs={9} md={6}>
-                    <h4 className="text-center">{userData.savedStateSearch && userData.savedStateSearch[3].name.toUpperCase()} TOTAL CASES</h4> 
-                    <h3 className="text-primary text-center">{userData.savedStateSearch && userData.savedStateSearch[3].confirmed.toLocaleString()}</h3>
+                    <h4 className="text-center">{search.name.toUpperCase()} TOTAL CASES</h4> 
+                    <h3 className="text-primary text-center">{search.confirmed.toLocaleString()}</h3>
                     <br></br>
-                    <p className="badge badge-danger">Deaths:</p> {userData.savedStateSearch && userData.savedStateSearch[3].deaths.toLocaleString()}
+                    <p className="badge badge-danger">Deaths:</p> {search.deaths.toLocaleString()}
                     <br></br>
                     </Col>
                 
                     <Col xs={9} md={6}>
-                    <h4 className="text-center">{userData.savedStateSearch && userData.savedStateSearch[3].name.toUpperCase()} NEW CASES</h4>
-                    <h3 className="text-primary text-center">{userData.savedStateSearch && userData.savedStateSearch[3].newConfirmed.toLocaleString()}</h3>
+                    <h4 className="text-center">{search.name.toUpperCase()} NEW CASES</h4>
+                    <h3 className="text-primary text-center">{search.newConfirmed.toLocaleString()}</h3>
                     <br></br>
-                    <p className="badge badge-danger">Deaths: </p> {userData.savedStateSearch && userData.savedStateSearch[3].newDeaths.toLocaleString()}
+                    <p className="badge badge-danger">Deaths: </p> {search.newDeaths.toLocaleString()}
                     <br></br>
                     <br></br>
                     </Col>
+                    Last Updated: <Moment format="MMMM Do, YYYY hh:mm a">{search.lastUpdate}</Moment>
+                    <Button className='btn-block btn-danger' onClick={() => handleDeleteStateSearch(search.searchId)}>Delete his Search!</Button>
                     </Row>
-                    Last Updated: <Moment format="MMMM Do, YYYY hh:mm a">{userData.savedStateSearch && userData.savedStateSearch[3].lastUpdate}</Moment>
-                    
+                    )})}
                 </div>
-                <div>
-                    
-                </div>
+                
             </div>
             </Card>
             
