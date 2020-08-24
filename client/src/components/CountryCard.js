@@ -32,14 +32,14 @@ export default class CountryCard extends React.Component {
                         <h3 className="text-primary text-center">{this.state.us.countryData[165].US.Summary.Confirmed.toLocaleString()}</h3>
                         <br></br>
                         <Row>
-                        <Col xs={9} md={7}>
+                        <Col xs={7} md={7}>
                         <p className="badge badge-warning">Active:</p> {this.state.us.countryData[165].US.Summary.Active.toLocaleString()}
                         <br></br>
                         <p className="badge badge-success">Recovered:</p> {this.state.us.countryData[165].US.Summary.Recovered.toLocaleString()}
                         <br></br>
                         <p className="badge badge-danger">Deaths:</p> {this.state.us.countryData[165].US.Summary.Deaths.toLocaleString()}
                         </Col>
-                        <Col xs={3} md={4}>
+                        <Col xs={4} md={4}>
                         <CountryTotalChart/>
                         </Col>
                         </Row>
@@ -48,12 +48,12 @@ export default class CountryCard extends React.Component {
                         <h3 className="text-primary text-center">{this.state.us.countryData[165].US.Summary.NewConfirmed.toLocaleString()}</h3>
                         <br></br>
                         <Row>
-                        <Col xs={9} md={7}>
+                        <Col xs={7} md={7}>
                         <p className="badge badge-success">Recovered:</p> {this.state.us.countryData[165].US.Summary.NewRecovered.toLocaleString()}
                         <br></br>
                         <p className="badge badge-danger">Deaths: </p> {this.state.us.countryData[165].US.Summary.NewDeaths.toLocaleString()}
                         </Col>
-                        <Col xs={3} md={4}>
+                        <Col xs={4} md={4}>
                         <CountryNewChart/>
                         </Col>
                         </Row>

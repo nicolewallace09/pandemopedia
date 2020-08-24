@@ -14,11 +14,11 @@ code {
 
 *  {
   font-family: noto Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 20px;
+  font-size: 1rem;
 }
 
 .app-claim {
-  font-size: 10px;
+  font-size: 0.5rem;
 }
 
 .section {
@@ -29,20 +29,17 @@ code {
   color: black;
 }
 
-
 .jumbotron {
-  background: url('https://ewscripps.brightspotcdn.com/dims4/default/7ee8cb6/2147483647/strip/true/crop/1280x720+0+0/resize/1280x720!/quality/90/?url=http%3A%2F%2Fewscripps-brightspot.s3.amazonaws.com%2F72%2F52%2F83d95c7b4318a34a8373c722bc6b%2Fcoronavirus-background-1280x720-1.jpg') no-repeat center fixed;
+  background: url('https://ewscripps.brightspotcdn.com/dims4/default/7ee8cb6/2147483647/strip/true/crop/1280x720+0+0/resize/1280x720!/quality/90/?url=http%3A%2F%2Fewscripps-brightspot.s3.amazonaws.com%2F72%2F52%2F83d95c7b4318a34a8373c722bc6b%2Fcoronavirus-background-1280x720-1.jpg');
   background-size: cover;
-  /* padding-top: 10%;
+  padding-top: 10%;
   padding-bottom: 20%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover; */
-}
-
-.stats-container {
-  padding: 50px;
+  -o-background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #footer {
@@ -68,6 +65,11 @@ code {
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;
+  }
+
+  .jumbotron {
+    padding: 0 50px;
+    width: 100% \9
   }
 }
 

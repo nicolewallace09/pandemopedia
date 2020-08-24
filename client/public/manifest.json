@@ -5,27 +5,27 @@
   "description": "An app that allows you to view Covid-19 data",
   "icons": [
     {
-      "src": "icons8-protection-mask-96.png",
+      "src": "icons/icons8-protection-mask-96.png",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "icons8-protection-mask-128.png",
+      "src": "icons/icons8-protection-mask-128.png",
       "type": "image/png",
       "sizes": "128x128"
     },
     {
-      "src": "icons8-protection-mask-256.png",
+      "src": "icons/icons8-protection-mask-256.png",
       "type": "image/png",
       "sizes": "256x256"
     },
     {
-      "src": "icons8-protection-mask-384.png",
+      "src": "icons/icons8-protection-mask-384.png",
       "type": "image/png",
       "sizes": "384x384"
     },
     {
-      "src": "icons8-protection-mask-512.png",
+      "src": "icons/icons8-protection-mask-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -36,8 +36,6 @@
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
-
-
 
 
 

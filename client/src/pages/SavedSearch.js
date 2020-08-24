@@ -1,11 +1,10 @@
 import React from 'react';
 import { Container, Card, Button, Row, Col } from 'react-bootstrap';
-
 import Auth from '../utils/auth';
 import { removeStateId } from '../utils/localStorage'; 
-import { useQuery, useMutation } from '@apollo/react-hooks'; // verify we have react-hooks npm
-import { GET_ME } from '../utils/queries'; // need to define
-import { REMOVE_STATE_SEARCH } from '../utils/mutations'; // need to build
+import { useQuery, useMutation } from '@apollo/react-hooks'; 
+import { GET_ME } from '../utils/queries';
+import { REMOVE_STATE_SEARCH } from '../utils/mutations';
 import Moment from 'react-moment';
 
 const SavedStateSearch = () => {
@@ -50,26 +49,23 @@ const SavedStateSearch = () => {
         return <h2>LOADING...</h2>;
     }
 
-    return (
-        <>
-            <Container>
-                <h1>Viewing saved searches!</h1>
-            </Container>
-            <Container>
-                <h2>
-                    {userData.savedStateSearch && userData.savedStateSearch.length ? `Viewing ${userData.savedStateSearch.length} saved ${userData.savedStateSearch.length === 1 ? 'search' : 'searches'}:`
-                  : 'You have no saved searches!'}
-                </h2>
-            </Container>
-            <div>
-                <Card border="black" className="homepage-card" style={{ paddingTop: 10, paddingLeft: 10, paddingBottom: 10}}>
+    console.log('returned data', userData);
+   return (
+     <>
+        <Container fluid>
+            <h2>{userData.savedStateSearch && userData.savedStateSearch.length ? `${userData.username} has ${userData.savedStateSearch.length} saved ${userData.savedStateSearch.length === 1 ? 'search' : 'searches'}`
+                : `${userData.username} has no saved searches!`}
+            </h2>
+        </Container>
+        <div>
+            <Card border="white" className="homepage-card" style={{ paddingTop: 10, paddingLeft: 10, paddingBottom: 10}}>
              <div>
                 <div>
-                    <h1>Your Saved Search Results:</h1>
+                    <h1 className="text-center">Your Saved Searches:</h1>
                     <br></br>
                     {userData.savedStateSearch.map((search) => {
                         return (
-                    <Row>   
+                    <Row key={search.stateId}>   
                     <Col xs={9} md={6}>
                     <h4 className="text-center">{search.name.toUpperCase()} TOTAL CASES</h4> 
                     <h3 className="text-primary text-center">{search.confirmed.toLocaleString()}</h3>
@@ -83,12 +79,14 @@ const SavedStateSearch = () => {
                     <h3 className="text-primary text-center">{search.newConfirmed.toLocaleString()}</h3>
                     <br></br>
                     <p className="badge badge-danger">Deaths: </p> {search.newDeaths.toLocaleString()}
-                    <br></br>
-                    <br></br>
-                    <Button className='btn-block btn-danger' size='md' onClick={() => handleDeleteStateSearch(search.stateId)}>Delete this Search!</Button>
                     </Col>
+                    <Col md={6}>
                     Last Updated: <Moment format="MMMM Do, YYYY hh:mm a">{search.lastUpdate}</Moment>
-                    
+                    </Col>
+
+                    <Col md={6}>
+                    <Button type='submit' variant='danger' size='md' style={{ justifyContent: 'flex-end'}} onClick={() => handleDeleteStateSearch(search.stateId)}>Delete this search</Button>
+                    </Col>
                     </Row>
                     )})}
                 </div>
