@@ -3,7 +3,7 @@ var urlsToCache = [
   '/',
   '/index.html',
   '/idb.js',
-  '/manifest.json',
+  // '/manifest.json',
   '/icons/icons8-protection-mask-96.png',
   '/icons/icons8-protection-mask-128.png',
   '/icons/icons8-protection-mask-256.png',
