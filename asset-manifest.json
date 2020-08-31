@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/pandemopedia/static/css/main.62dc221e.chunk.css",
-    "main.js": "/pandemopedia/static/js/main.5fece0d1.chunk.js",
-    "main.js.map": "/pandemopedia/static/js/main.5fece0d1.chunk.js.map",
+    "main.js": "/pandemopedia/static/js/main.94635b4a.chunk.js",
+    "main.js.map": "/pandemopedia/static/js/main.94635b4a.chunk.js.map",
     "runtime-main.js": "/pandemopedia/static/js/runtime-main.862ec522.js",
     "runtime-main.js.map": "/pandemopedia/static/js/runtime-main.862ec522.js.map",
     "static/css/2.11829350.chunk.css": "/pandemopedia/static/css/2.11829350.chunk.css",
     "static/js/2.b34ced8f.chunk.js": "/pandemopedia/static/js/2.b34ced8f.chunk.js",
     "static/js/2.b34ced8f.chunk.js.map": "/pandemopedia/static/js/2.b34ced8f.chunk.js.map",
     "index.html": "/pandemopedia/index.html",
-    "precache-manifest.b2cd07d78c6adef62079615d258f4e2d.js": "/pandemopedia/precache-manifest.b2cd07d78c6adef62079615d258f4e2d.js",
+    "precache-manifest.52b461f0d5de62bf2e13e2dba8b9e072.js": "/pandemopedia/precache-manifest.52b461f0d5de62bf2e13e2dba8b9e072.js",
     "service-worker.js": "/pandemopedia/service-worker.js",
     "static/css/2.11829350.chunk.css.map": "/pandemopedia/static/css/2.11829350.chunk.css.map",
     "static/css/main.62dc221e.chunk.css.map": "/pandemopedia/static/css/main.62dc221e.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.11829350.chunk.css",
     "static/js/2.b34ced8f.chunk.js",
     "static/css/main.62dc221e.chunk.css",
-    "static/js/main.5fece0d1.chunk.js"
+    "static/js/main.94635b4a.chunk.js"
   ]
 }

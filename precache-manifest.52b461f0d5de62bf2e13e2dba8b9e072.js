@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e6d62f8c91090f33468b1917c443feb9",
+    "revision": "9c84f5274fd0ee0a7e1d08350500014a",
     "url": "/pandemopedia/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pandemopedia/static/css/2.11829350.chunk.css"
   },
   {
-    "revision": "06f3c083dcbf640883de",
+    "revision": "71d15c0f6b59a07b0d6e",
     "url": "/pandemopedia/static/css/main.62dc221e.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pandemopedia/static/js/2.b34ced8f.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "06f3c083dcbf640883de",
-    "url": "/pandemopedia/static/js/main.5fece0d1.chunk.js"
+    "revision": "71d15c0f6b59a07b0d6e",
+    "url": "/pandemopedia/static/js/main.94635b4a.chunk.js"
   },
   {
     "revision": "876d19486ea26a60d0e9",
