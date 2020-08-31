@@ -16,4 +16,4 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 
 // YOU NEED TO REGISTER TO MAKE the service worker .. work.
-serviceWorker.register();
+serviceWorker.unregister();
