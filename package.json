@@ -1,5 +1,5 @@
 {
-  "name": "project3",
+  "name": "pandemopedia",
   "version": "1.0.0",
   "description": "![Github licence](http://img.shields.io/badge/license-MIT-blue.svg)",
   "main": "server/server.js",
@@ -14,15 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicolewallace09/project3.git"
+    "url": "git+https://github.com/nicolewallace09/pandemopedia.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nicolewallace09/project3/issues"
+    "url": "https://github.com/nicolewallace09/pandemopedia/issues"
   },
-  "homepage": "https://github.com/nicolewallace09/project3#readme",
   "dependencies": {
     "if-env": "^1.0.4",
     "json-web-token": "^3.2.0",
